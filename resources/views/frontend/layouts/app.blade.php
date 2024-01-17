@@ -1,29 +1,39 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="zxx">
+
 <head>
     <meta charset="utf-8">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <link rel="shortcut icon" href="{{asset('frontend/img/favicon.png')}}"/>
+    <title>Savoye Architecture</title>
+    <link rel="shortcut icon" href="{{asset('frontend/img/favicon.png')}}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/plugins.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}" />
-
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
+
 <body>
     <div id="app">
+        <div class="preloader-bg"></div>
+        <div id="preloader">
+            <div id="preloader-status">
+                <div class="preloader-position loader"> <span></span> </div>
+            </div>
+        </div>
+        <!-- Progress scroll totop -->
+        <div class="progress-wrap cursor-pointer">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+            </svg>
+        </div>
+        <!-- Navbar -->
+        @include('frontend.layouts.header')
+        <!-- Navbar -->
+        @yield('frontend')
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+
+        @include('frontend.layouts.footer')
     </div>
-
+    <!-- jQuery -->
     <script src="{{asset('frontend/js/jquery-3.6.0.min.js')}}"></script>
     <script src="{{asset('frontend/js/jquery-migrate-3.0.0.min.js')}}"></script>
     <script src="{{asset('frontend/js/modernizr-2.6.2.min.js')}}"></script>
@@ -39,4 +49,5 @@
     <script src="{{asset('frontend/js/YouTubePopUp.js')}}"></script>
     <script src="{{asset('frontend/js/custom.js')}}"></script>
 </body>
+
 </html>
