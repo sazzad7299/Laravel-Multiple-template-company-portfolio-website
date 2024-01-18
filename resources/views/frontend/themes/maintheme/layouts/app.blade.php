@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title') -{{ config('app.name', 'Laravel') }}</title>
     <link rel="shortcut icon" href="{{asset('frontend/img/favicon.png')}}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/plugins.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}" />
@@ -26,12 +26,12 @@
             </svg>
         </div>
         <!-- Navbar -->
-        @include('frontend.layouts.header')
+        @include('frontend.themes.maintheme.layouts.header')
         <!-- Navbar -->
         @yield('frontend')
 
 
-        @include('frontend.layouts.footer')
+        @include('frontend.themes.maintheme.layouts.footer')
     </div>
     <!-- jQuery -->
     <script src="{{asset('frontend/js/jquery-3.6.0.min.js')}}"></script>

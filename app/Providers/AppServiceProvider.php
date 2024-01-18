@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Settings;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $settings = Cache::remember('settings', 60, function () {
+            // Fetch settings from the database
+            return Settings::pluck('meta_value', 'meta_key')->all();
+        });
+    
     }
 }
