@@ -5,17 +5,16 @@
 <header id="home" class="header slider-fade" data-scroll-index="0">
     <div class="owl-carousel owl-theme">
         <!-- The opacity on the image is made with "data-overlay-dark="number".You can change it using the numbers 0-9. -->
-        <div class="text-left item bg-img" data-overlay-dark="3"
-            data-background="{{asset('frontend/img/slider/2.jpg')}}">
+        @foreach ($sliders as $slider)
+        <div class="text-left item bg-img" data-overlay-dark="3" data-background="{{asset($slider->feature_image)}}">
             <div class="v-middle caption">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 mt-30">
                             <div class="o-hidden">
-                                <h6>Residental</h6>
-                                <h1></h1>
-                                <p>Architecture viverra tellus nec massa dictum the blackspace euismoe.<br>Curabitur
-                                    viverra the posuere hose aukue velition.</p>
+                                <h6>{{ $slider->title }}</h6>
+                                <h1>{{ $slider->title }}</h1>
+                                <p>{{ $slider->description }}</p>
                                 <a href="project-page.html" class="btn float-btn flat-btn">Discover</a>
                             </div>
                         </div>
@@ -23,42 +22,8 @@
                 </div>
             </div>
         </div>
-        <div class="text-left item bg-img" data-overlay-dark="3"
-            data-background="{{asset('frontend/img/slider/2.jpg')}}">
-            <div class="v-middle caption">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 mt-30">
-                            <div class="o-hidden">
-                                <h6>Residental</h6>
-                                <h1>One Stone House</h1>
-                                <p>Architecture viverra tellus nec massa dictum the blackspace euismoe.<br>Curabitur
-                                    viverra the posuere hose aukue velition.</p>
-                                <a href="project-page.html" class="btn float-btn flat-btn">Discover</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="text-left item bg-img" data-overlay-dark="4"
-            data-background="{{asset('frontend/img/slider/3.jpg')}}">
-            <div class="v-middle caption">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 mt-30">
-                            <div class="o-hidden">
-                                <h6>Residental</h6>
-                                <h1>Collin Bea House</h1>
-                                <p>Architecture viverra tellus nec massa dictum the blackspace euismoe.<br>Curabitur
-                                    viverra the posuere hose aukue velition.</p>
-                                <a href="project-page.html" class="btn float-btn flat-btn">Discover</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
+
     </div>
 </header>
 <!-- Slider Services Box -->
@@ -223,7 +188,8 @@
 <div id="parallax-section" class="parallax-header parallax-slider-fade" data-scroll-index="3">
     <div class="owl-carousel owl-theme">
         <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
-        <div class="text-left item bg-img" data-overlay-dark="3" data-background="{{asset('frontend/img/slider/1.jpg')}}">
+        <div class="text-left item bg-img" data-overlay-dark="3"
+            data-background="{{asset('frontend/img/slider/1.jpg')}}">
             <div class="v-middle caption">
                 <div class="container">
                     <div class="row">
@@ -463,7 +429,7 @@
                     <div class="portfolio-item">
                         <div class="gallery-masonry-wrapper">
                             <a class="gallery-masonry-item-img-link d-block savoye-photo-item" data-fancybox="images"
-                                href="{{asset('frontend/img/projects/1.jpg')}}"data-caption="Alvar Alto Museum">
+                                href="{{asset('frontend/img/projects/1.jpg')}}" data-caption="Alvar Alto Museum">
                                 <img class="img-fluid" src="{{ asset('frontend/img/projects/1.jpg')}}" alt="">
                                 <div class="gallery-masonry-item-img"></div>
                                 <div class="gallery-masonry-item-content">
@@ -478,8 +444,8 @@
                     <div class="portfolio-item">
                         <div class="gallery-masonry-wrapper">
                             <a class="gallery-masonry-item-img-link d-block savoye-photo-item" data-fancybox="images"
-                                href="{{asset('frontend/img/projects/4.jpg')}}" data-caption="European Lard Station"> <img
-                                    class="img-fluid" src="{{ asset('frontend/img/projects/4.jpg')}}" alt="">
+                                href="{{asset('frontend/img/projects/4.jpg')}}" data-caption="European Lard Station">
+                                <img class="img-fluid" src="{{ asset('frontend/img/projects/4.jpg')}}" alt="">
                                 <div class="gallery-masonry-item-img"></div>
                                 <div class="gallery-masonry-item-content">
                                     <h4 class="gallery-masonry-item-title">European Lard Station</h4>
@@ -493,7 +459,7 @@
                     <div class="portfolio-item">
                         <div class="gallery-masonry-wrapper">
                             <a class="gallery-masonry-item-img-link d-block savoye-photo-item" data-fancybox="images"
-                                href="{{asset('frontend/img/projects/2.jpg')}}"data-caption="Yabroudi Villa"> <img
+                                href="{{asset('frontend/img/projects/2.jpg')}}" data-caption="Yabroudi Villa"> <img
                                     class="img-fluid" src="{{ asset('frontend/img/projects/2.jpg')}}" alt="">
                                 <div class="gallery-masonry-item-img"></div>
                                 <div class="gallery-masonry-item-content">
@@ -525,7 +491,7 @@
                     <div class="portfolio-item">
                         <div class="gallery-masonry-wrapper">
                             <a class="gallery-masonry-item-img-link d-block savoye-photo-item" data-fancybox="images"
-                                href="{{asset('frontend/img/projects/5.jpg')}}"data-caption="Dalbourne Villa">
+                                href="{{asset('frontend/img/projects/5.jpg')}}" data-caption="Dalbourne Villa">
                                 <img class="img-fluid" src="{{ asset('frontend/img/projects/5.jpg')}}" alt="">
                                 <div class="gallery-masonry-item-img"></div>
                                 <div class="gallery-masonry-item-content">
@@ -540,7 +506,7 @@
                     <div class="portfolio-item">
                         <div class="gallery-masonry-wrapper">
                             <a class="gallery-masonry-item-img-link d-block savoye-photo-item" data-fancybox="images"
-                                href="{{asset('frontend/img/projects/8.jpg')}}"data-caption="Amman Rotana Hotel">
+                                href="{{asset('frontend/img/projects/8.jpg')}}" data-caption="Amman Rotana Hotel">
                                 <img class="img-fluid" src="{{ asset('frontend/img/projects/8.jpg')}}" alt="">
                                 <div class="gallery-masonry-item-img"></div>
                                 <div class="gallery-masonry-item-content">
@@ -557,7 +523,7 @@
                     <div class="portfolio-item">
                         <div class="gallery-masonry-wrapper">
                             <a class="gallery-masonry-item-img-link d-block savoye-photo-item" data-fancybox="images"
-                                href="{{asset('frontend/img/projects/3.jpg')}}"data-caption="Alvar Alto Museum">
+                                href="{{asset('frontend/img/projects/3.jpg')}}" data-caption="Alvar Alto Museum">
                                 <img class="img-fluid" src="{{ asset('frontend/img/projects/3.jpg')}}" alt="">
                                 <div class="gallery-masonry-item-img"></div>
                                 <div class="gallery-masonry-item-content">
@@ -587,7 +553,7 @@
                     <div class="portfolio-item">
                         <div class="gallery-masonry-wrapper">
                             <a class="gallery-masonry-item-img-link d-block savoye-photo-item" data-fancybox="images"
-                                href="{{asset('frontend/img/projects/7.jpg')}}"data-caption="French Embassy"> <img
+                                href="{{asset('frontend/img/projects/7.jpg')}}" data-caption="French Embassy"> <img
                                     class="img-fluid" src="{{ asset('frontend/img/projects/7.jpg')}}" alt="">
                                 <div class="gallery-masonry-item-img"></div>
                                 <div class="gallery-masonry-item-content">
