@@ -31,7 +31,7 @@
                             <tr>
                                 <td>{{ $category->id }}</td>
                                 <td>{{ $category->title }}</td>
-                                <td>{{ $category->description }}</td>
+                                <td>{{ Str::limit($category->description,50) }}</td>
                                 <td>
                                     {{ $category->status ==1 ?'Active' :"Inactive" }}
                                 </td>

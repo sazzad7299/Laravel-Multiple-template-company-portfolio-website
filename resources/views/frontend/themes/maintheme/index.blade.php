@@ -30,69 +30,18 @@
 <div class="slider-services-wrapper">
     <div class="slider-box-content box-up clearfix">
         <div class="row no-gutters">
-            <div class="col-md-3 offset-md-6">
+            @foreach(app('categories') as $key=>$category)
+            <div class="col-md-3  {{ $key == 0 ? 'offset-md-6' : '' }} ">
                 <div class="slider-services-box b-right b-bottom">
                     <a href="architectural-design.html">
                         <div class="slider-services-box-info">
-                            <img src="{{ asset('frontend/img/icons/6.png')}}" class="services-icon" alt="">
-                            <h5>Architectural Design</h5>
+                            <img src="{{ asset($category->feature_image)}}" class="services-icon" alt="">
+                            <h5>{{ $category->title }}</h5>
                         </div>
                     </a>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="slider-services-box b-bottom">
-                    <a href="interior-design.html">
-                        <div class="slider-services-box-info">
-                            <img src="{{ asset('frontend/img/icons/2.png')}}" class="services-icon" alt="">
-                            <h5>Interior Design</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-12">
-                <hr class="no-line">
-            </div>
-            <div class="col-md-3">
-                <div class="slider-services-box b-left b-bottom">
-                    <a href="urban-design.html">
-                        <div class="slider-services-box-info">
-                            <img src="{{ asset('frontend/img/icons/3.png')}}" class="services-icon" alt="">
-                            <h5>Urban Design</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="slider-services-box b-left b-bottom">
-                    <a href="urban-design.html">
-                        <div class="slider-services-box-info">
-                            <img src="{{ asset('frontend/img/icons/3.png')}}" class="services-icon" alt="">
-                            <h5>Urban Design</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="slider-services-box b-left b-right b-bottom">
-                    <a href="decor-plan.html">
-                        <div class="slider-services-box-info">
-                            <img src="{{ asset('frontend/img/icons/5.png')}}" class="services-icon" alt="">
-                            <h5>Decor Plan</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="slider-services-box b-left b-right b-bottom">
-                    <a href="decor-plan.html">
-                        <div class="slider-services-box-info">
-                            <img src="{{ asset('frontend/img/icons/5.png')}}" class="services-icon" alt="">
-                            <h5>Decor Plan</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -101,18 +50,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7">
-                <div class="section-title">About Us</div>
-                <p>Architecture innovation tristiue usto duision vitae diam nemue nivamus aesta atene artin arinian
-                    finibus ate viverra nec lacus. Nedana edino suscipe.</p>
-                <p>Savoye inila duman aten elit finibus vivera alacus themone the drudean seneice miuscibe noneten
-                    the fermen. Savoye architecture duiman at elit finibus viverra nec a lacus themo drudeane sene
-                    voice misuscipit non sagie the volume fermen.</p>
-                <p>Viverra tristique jusio the ivite dianne onen nivam acsestion augue artine. Savoye toverra
-                    ristique usto vitae diam nenon sovaye aesta vazio lacus.</p>
+                <div class="section-title">{{ app('settings')['about_title'] ?? 'About Us'; }}</div>
+                <p>
+                    {{ app('settings')['about_description'] ?? 'About Us'; }}
+                </p>
             </div>
             <div class="col-md-5">
                 <div class="about-img">
-                    <div class="img"> <img src="{{ asset('frontend/img/about.png')}}" class="img-fluid" alt=""> </div>
+                    <div class="img"> <img src="{{ asset( app('settings')['about_image'] ?? 'frontend/img/about.png')}}" class="img-fluid" alt=""> </div>
                 </div>
             </div>
         </div>
