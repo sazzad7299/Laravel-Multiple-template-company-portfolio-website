@@ -23,7 +23,6 @@ class StorePostRequest extends FormRequest
     {
         return [
             'title'=>'required',
-            'slug'=>'required',
             'description'=>'nullable',
             'date'=>'nullable',
             'post_type'=>'nullable',

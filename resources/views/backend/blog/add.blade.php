@@ -16,13 +16,13 @@
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label class="form-label">Slug <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="slug" value="{{ old('slug') }}">
                             @error('slug')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
-                        </div>
+                        </div> -->
                         <input type="hidden" name="'post_type" value="blog">
                         <div class="mb-3">
                             <label class="form-label">Description</label>
@@ -36,26 +36,26 @@
         <div class="col-md-4 mb-3">
             <div class="card">
                 <div class="card-header">
-                    <h4>Add Feature Image</h4>
+                    <h4>Images</h4>
                 </div>
                 <div class="card-body">
-                    <input class="form-control form-control-sm" id="formFileSm" type="file" name="feature_image">
-                    @error('feature_image')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
+                    <div class="mb-3">
+                        <label class="form-label">Feature Image</label>
+                        <input class="form-control form-control-sm" id="formFileSm" type="file" name="feature_image">
+                        @error('feature_image')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Gallery Image</label>
+                        <input class="form-control form-control-sm" id="formFileSm" type="file" name="gallery[]" multiple="">
+                        @error('feature_image')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-header">
-                    <h4>Add Gallery Image</h4>
-                </div>
-                <div class="card-body">
-                    <input class="form-control form-control-sm" id="formFileSm" type="file" name="gallery[]" multiple="">
-                    @error('feature_image')
-                    <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-            </div>
+            <input type="hidden" name="post_type" value="blog">
             <div class="card">
                 <div class="card-header">
                     <h4>Publish</h4>
@@ -67,6 +67,10 @@
                             <option value="1">Active</option>
                             <option value="2">Inactive</option>
                         </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Publish Date</label>
+                        <input type="date" name="date" class="form-control" >
                     </div>
                 </div>
                 <div class="card-footer">

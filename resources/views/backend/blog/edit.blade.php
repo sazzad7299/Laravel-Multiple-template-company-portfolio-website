@@ -1,9 +1,8 @@
 @extends('backend.layouts.app') @section('admin')
 <form
-    action="{{ route('admin.category.update',$category->id) }}"
+    action="{{ route('admin.blog.update', $blog->id) }}"
     method="post"
-    enctype="multipart/form-data"
->
+    enctype="multipart/form-data">
     @csrf @method('PUT')
     <div class="row">
         <div class="col-md-8">
@@ -18,7 +17,7 @@
                                 type="text"
                                 class="form-control"
                                 name="title"
-                                value="{{ old('title',$category->title) }}"
+                                value="{{ old('title',$blog->title) }}"
                             />
                             @error('title')
                             <span class="text-danger">{{ $message }}</span>
@@ -33,7 +32,7 @@
                                 cols="30"
                                 rows="3"
                                 class="form-control"
-                                >{{ old('description',$category->description) }}</textarea
+                                >{{ old('description',$blog->description) }}</textarea
                             >
                         </div>
                     </div>
@@ -65,10 +64,10 @@
                     <div class="mb-3">
                         <label class="form-label">Status</label>
                         <select name="status" id="status" class="form-control">
-                            <option value="1" {{ $category->
+                            <option value="1" {{ $blog->
                                 status == 1 ? 'selected' :
                                 '' }}>Active</option>
-                            <option value="2" {{ $category->
+                            <option value="2" {{ $blog->
                                 status == 2 ? 'selected' :
                                 '' }}>Inactive</option>
                         </select>

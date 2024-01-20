@@ -31,7 +31,7 @@
                             <tr>
                                 <td>{{ $post->id }}</td>
                                 <td>{{ $post->title }}</td>
-                                <td>{{ $post->description }}</td>
+                                <td>{!! Str::limit($post->description, 30) !!}</td>
                                 <td>
                                     {{ $post->status ==1 ?'Active' :"Inactive" }}
                                 </td>
@@ -44,8 +44,8 @@
                                             data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"
                                             onclick="if(confirm('Are You Sure To Delete?')){ event.preventDefault(); getElementById('delete-form-{{ $post->id }}').submit(); } else { event.preventDefault(); }"><i
                                                 class="bi bi-trash-fill"></i></a>
-                                        <form action="{{ route('admin.blog.destroy', [$post->id]) }}"
-                                            method="post" style="display: none;" id="delete-form-{{ $post->id }}">
+                                        <form action="{{ route('admin.blog.destroy', [$post->id]) }}" method="post"
+                                            style="display: none;" id="delete-form-{{ $post->id }}">
                                             @csrf
                                             {{ method_field('DELETE') }}
                                         </form>

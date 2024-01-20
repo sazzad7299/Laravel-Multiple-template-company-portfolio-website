@@ -55,18 +55,18 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit(Post $blog)
     {
-        return view('backend.blog.edit',compact('post'));
+        return view('backend.blog.edit', compact('blog'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(UpdatePostRequest $request, Post $blog)
     {
         try {
-            $this->postService->update($post,$request);
+            $this->postService->update($blog,$request);
 
             return redirect()->route('admin.blog.index')->with('success','blog Update Successfully');
         } catch (\Throwable $e) {
@@ -77,9 +77,9 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $post)
+    public function destroy(Post $blog)
     {
-        $this->postService->delete($post);
+        $this->postService->delete($blog);
         return redirect()->route('admin.blog.index')->with('success','Blog Deleted Successfully');
     }
 }
