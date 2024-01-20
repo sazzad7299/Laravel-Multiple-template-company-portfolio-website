@@ -569,65 +569,14 @@
     </div>
 </div>
 <!-- Blog -->
-<div id="blog" class="blog section-padding" data-scroll-index="8">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-title">Latest News</div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="item">
-                    <div class="post-img">
-                        <a href="post.html">
-                            <div class="img"> <img src="{{ asset('frontend/img/blog/5.jpg')}}" alt=""> </div>
-                        </a>
-                    </div>
-                    <div class="cont">
-                        <h4><a href="post.html">A Brief History on the Beginnings of Modern Architecture</a></h4>
-                        <div class="info"> <a href="blog.html"><span>Event</span></a> <a href="blog.html">October,
-                                24</a> </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="item">
-                    <div class="post-img">
-                        <a href="post.html">
-                            <div class="img"> <img src="{{ asset('frontend/img/blog/6.jpg')}}" alt=""> </div>
-                        </a>
-                    </div>
-                    <div class="cont">
-                        <h4><a href="post.html">Luxurious And Ultra Modern Homes In The World</a></h4>
-                        <div class="info"> <a href="blog.html"><span>Event</span></a> <a href="blog.html">October,
-                                21</a> </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="item">
-                    <div class="post-img">
-                        <a href="post.html">
-                            <div class="img"> <img src="{{ asset('frontend/img/blog/7.jpg')}}" alt=""> </div>
-                        </a>
-                    </div>
-                    <div class="cont">
-                        <h4><a href="post.html">This Ultra-Modern Mountain Home Goes Above and Beyond</a></h4>
-                        <div class="info"> <a href="blog.html"><span>Event</span></a> <a href="blog.html">October,
-                                18</a> </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<x-blog :blogs="$blogs">
+</x-blog>
 <!-- hr -->
 <hr class="line-vr-section">
 <!-- Top Footer Banner -->
 <div id="contact" class="topbanner-footer" data-scroll-index="9">
     <div class="section-padding banner-img valign bg-img bg-fixed" data-overlay-darkgray="1"
-        data-background={{asset('frontend/img/slider/1.jpg')}}>
+        data-background="{{asset('frontend/img/slider/1.jpg')}}">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mb-30 text-left caption">

@@ -3,8 +3,10 @@
 namespace App\Services;
 
 use App\Models\Post;
+use App\Models\PostMeta;
 use App\Traits\ImageUpload;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 
 class PostService
 {
@@ -35,7 +37,9 @@ class PostService
             $requestedData['feature_image'] = $this->image($feature_image, 'images/post/', 720, 540);
         }
         $post->fill($requestedData)->save();
-
+        
+        $requestedData = Arr::except($requestedData, ['title','description','date','post_type','feature_image','status','_token', '_method']);
+        $this->storeMeta($post->id, $requestedData, auth()->id());
         return $post;
     }
 
@@ -64,5 +68,21 @@ class PostService
             unlink($category->feature_image);
         }
         $category->delete();
+    }
+    protected function storeMeta($postId, $customFields, $createdBy)
+    {
+        // Store metadata in postmeta table
+        foreach ($customFields as $metaKey => $metaValue) {
+            if($metaKey =='gallery'){
+                $metaValue =  $this->image($metaValue, 'images/gellary/', 200, 200);
+            }
+            PostMeta::create([
+                'post_id' => $postId,
+                'meta_key' => $metaKey,
+                'meta_value' => $metaValue,
+                'created_by' => $createdBy,
+            ]);
+            
+        }
     }
 }

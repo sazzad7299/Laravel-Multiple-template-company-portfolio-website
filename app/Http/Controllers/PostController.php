@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Services\PostService;
 use App\Http\Requests\StorePostRequest;
@@ -26,7 +27,6 @@ class PostController extends Controller
 
     public function create()
     {
-        
         return view('backend.blog.add');
     }
 
@@ -67,7 +67,7 @@ class PostController extends Controller
     {
         try {
             $this->postService->update($blog,$request);
-
+            
             return redirect()->route('admin.blog.index')->with('success','blog Update Successfully');
         } catch (\Throwable $e) {
             return redirect()->route('admin.blog.index')->with('error',$e->getMessage());

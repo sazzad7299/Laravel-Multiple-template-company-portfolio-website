@@ -16,14 +16,6 @@
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        <!-- <div class="mb-3">
-                            <label class="form-label">Slug <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" name="slug" value="{{ old('slug') }}">
-                            @error('slug')
-                            <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div> -->
-                        <input type="hidden" name="'post_type" value="blog">
                         <div class="mb-3">
                             <label class="form-label">Description</label>
                             <textarea name="description" id="" cols="30" rows="3"
@@ -71,6 +63,14 @@
                     <div class="mb-3">
                         <label class="form-label">Publish Date</label>
                         <input type="date" name="date" class="form-control" >
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <select name="category_id" id="category_id" class="form-control">
+                            @foreach(app('categories') as $category)
+                                <option value="{{ $category->id }}">{{ $category->title }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="card-footer">
