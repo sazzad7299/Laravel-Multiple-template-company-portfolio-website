@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\Slider;
 use App\Models\Settings;
 use Illuminate\Http\Request;
@@ -12,11 +13,14 @@ class LandingPageController extends Controller
     public function index()
     {
         $sliders = Slider::query()->active()->take(6)->get();
-        return view(themeLocation(). '.index',compact('sliders'));
+        $blogs = Post::query()->active()->blog()->with('postmeta:meta_key,meta_value')->take(6)->get();
+        return view(themeLocation(). '.index',compact('sliders','blogs'));
     }
-    public function blogDetails()
+    public function blogDetails($slug)
     {
-        return view('index');
+        $blog = Post::where('slug', $slug)->firstOrFail();
+        $blogmeta = $blog->postmeta;
+        return view(themeLocation().'.blog-details',compact('blog','blogmeta'));
     }
     public function serviceDetails()
     {

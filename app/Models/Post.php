@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\PostMeta;
 use App\Traits\CreatedUpdatedBy;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -13,10 +14,14 @@ class Post extends Model
     use HasFactory,CreatedUpdatedBy,SoftDeletes,Sluggable;
     protected $table = 'posts';
 
-   protected $fillable = ['title','description','feature_image','slug','date','post_type'];
+   protected $fillable = ['title','description','feature_image','slug','date', 'post_type'];
     public function scopeActive($query)
     {
         $query->where('status', 1);
+    }
+    public function scopeBlog($query)
+    {
+        $query->where('post_type', 'blog');
     }
 
     public function scopeSearch($query, $request)
@@ -32,6 +37,9 @@ class Post extends Model
                 'source' => 'title'
             ],
         ];
+    }
+    public function postmeta(){
+        return $this->hasMany(PostMeta::class,'post_id');
     }
 
 }
