@@ -78,9 +78,9 @@
                 <div class="menu-title">Blogs</div>
             </a>
             <ul>
-                <li> <a href="ecommerce-add-new-product.html"><i class="bi bi-circle"></i>Add Blog</a>
+                <li> <a href="{{ route('admin.blog.create') }}"><i class="bi bi-circle"></i>Add Blog</a>
                 </li>
-                <li> <a href="ecommerce-add-new-product-2.html"><i class="bi bi-circle"></i>Blog List</a>
+                <li> <a href="{{ route('admin.blog.index') }}"><i class="bi bi-circle"></i>Blog List</a>
                 </li>
             </ul>
         </li>
