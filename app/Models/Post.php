@@ -12,7 +12,7 @@ class Post extends Model
     use HasFactory,CreatedUpdatedBy,SoftDeletes;
     protected $table = 'posts';
 
-   protected $fillable = ['title','description','feature_image'];
+   protected $fillable = ['title','description','feature_image','slug','date'];
     public function scopeActive($query)
     {
         $query->where('status', 1);

@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -14,8 +15,9 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description')->nullable();
-            $table->date('date');
+            $table->string('slug');
+            $table->text('description')->nullable();
+             $table->date('date')->default(DB::raw('CURRENT_DATE'));
             $table->tinyText('post_type')->nullable();
             $table->string('feature_image');
             $table->tinyInteger('status')->default(1);

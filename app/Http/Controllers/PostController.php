@@ -2,34 +2,46 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use Illuminate\Http\Request;
+use App\Services\PostService;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
-use App\Models\Post;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    protected $postService;
+
+    public function __construct(PostService $postService)
     {
-        //
+        $this->postService = $postService;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function index(Request $request)
+    {
+        $posts = $this->postService->index($request);
+        
+        return view('backend.blog.index',compact('posts'));
+    }
+
     public function create()
     {
-        //
+        
+        return view('backend.blog.add');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePostRequest $request)
+    public function store(StorePostRequest $request,Post $post)
     {
-        //
+        try {
+            $this->postService->store($post, $request);
+            return redirect()->route('admin.blog.index')->with('success','blog Added Successfully');
+        } catch (\Throwable $th) {
+            return redirect()->route('admin.blog.index')->with('error',$th->getMessage());
+        }
+        
     }
 
     /**
@@ -45,7 +57,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('backend.blog.edit',compact('post'));
     }
 
     /**
@@ -53,7 +65,13 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        try {
+            $this->postService->update($post,$request);
+
+            return redirect()->route('admin.blog.index')->with('success','blog Update Successfully');
+        } catch (\Throwable $e) {
+            return redirect()->route('admin.blog.index')->with('error',$e->getMessage());
+        }
     }
 
     /**
@@ -61,6 +79,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $this->postService->delete($post);
+        return redirect()->route('admin.blog.index')->with('success','Blog Deleted Successfully');
     }
 }
