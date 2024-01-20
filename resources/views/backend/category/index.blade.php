@@ -4,11 +4,11 @@
         <div class="card-header">
             <div class="row align-items-center">
                 <div class="col-lg-9 col-xl-10">
-                    <h4>category List</h4>
+                    <h4>Category List</h4>
                 </div>
                 <div class="col-lg-3 col-xl-2">
                     <a href="{{ route('admin.category.create') }}" class="btn btn-primary mb-3 mb-lg-0"><i
-                            class="bi bi-plus-square-fill"></i>Add category</a>
+                            class="bi bi-plus-square-fill"></i>Add Category</a>
                 </div>
             </div>
         </div>
