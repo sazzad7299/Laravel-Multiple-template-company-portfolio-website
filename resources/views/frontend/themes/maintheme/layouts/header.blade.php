@@ -2,7 +2,7 @@
     <div class="container">
         <!-- Logo -->
         <div class="logo-wrapper">
-            <a class="logo" href="index.html"> <img
+            <a class="logo" href="{{ url('/')  }}"> <img
                     src="{{ asset(app('settings')['site_light_logo'] ?? 'frontend/img/logo-light.png')}}" alt="">
             </a>
         </div>
