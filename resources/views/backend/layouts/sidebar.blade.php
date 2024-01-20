@@ -2,7 +2,7 @@
 <aside class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div>
-            <img src="{{ asset('backend/assets/images/logo-icon.png')}}" class="logo-icon" alt="logo icon">
+            <img src="{{ asset('backend/assets/images/logo-icon.png') }}" class="logo-icon" alt="logo icon">
         </div>
         <div>
             <h4 class="logo-text">Snacked</h4>
@@ -13,11 +13,24 @@
     <!--navigation-->
     <ul class="metismenu" id="menu">
         <li>
-            <a href="{{ route('admin.home')}}">
+            <a href="{{ route('admin.home') }}">
                 <div class="parent-icon"><i class="bi bi-house-fill"></i>
                 </div>
                 <div class="menu-title">Home</div>
             </a>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bi bi-basket2-fill"></i>
+                </div>
+                <div class="menu-title">Category</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('admin.category.create') }}"><i class="bi bi-circle"></i>Add Category</a>
+                </li>
+                <li> <a href="{{ route('admin.category.index') }}"><i class="bi bi-circle"></i>Category List</a>
+                </li>
+            </ul>
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">

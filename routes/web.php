@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LandingPageController;
 
 /*
@@ -27,6 +28,7 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.',  'middleware' => ['auth']]
     Route::get('/', [HomeController::class, 'index'])->name('home');
     
     Route::resource('slider', SliderController::class);
+    Route::resource('category', CategoryController::class);
     
 
 });
