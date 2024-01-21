@@ -54,7 +54,7 @@
             <ul>
                 <li> <a href="{{ route('admin.service.create') }}"><i class="bi bi-circle"></i>Add Service</a>
                 </li>
-                <li> <a href="{{ route('admin.service.index') }}"><i class="bi bi-circle"></i>Project List</a>
+                <li> <a href="{{ route('admin.service.index') }}"><i class="bi bi-circle"></i>Service List</a>
                 </li>
             </ul>
         </li>
