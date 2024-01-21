@@ -13,8 +13,20 @@ class LandingPageController extends Controller
     public function index()
     {
         $sliders = Slider::query()->active()->take(6)->get();
-        $blogs = Post::query()->active()->blog()->with('postmeta:meta_key,meta_value')->take(6)->get();
-        return view(themeLocation(). '.index',compact('sliders','blogs'));
+        $blogs = Post::query()
+                        ->active()
+                        ->blog()
+                        ->with('category:id,post_id,meta_value')
+                        ->take(6)
+                        ->get();
+
+        $projects = Post::query()
+                        ->active()
+                        ->project()
+                        ->with('category:id,post_id,meta_value')
+                        ->take(6)
+                        ->get();
+        return view(themeLocation(). '.index',compact('sliders','blogs','projects'));
     }
     public function blogDetails($slug)
     {
@@ -32,8 +44,16 @@ class LandingPageController extends Controller
     {
         return view('index');
     }
-    public function projectDetails()
+    public function projectDetails($slug)
     {
-        return view('index');
+        $project = Post::where('slug', $slug)->firstOrFail();
+        $blogmeta = $project->postmeta;
+        foreach($blogmeta as $item){
+            if($item->meta_key =='gallery')
+            $project[$item->meta_key] = json_decode($item->meta_value);
+            else
+            $project[$item->meta_key] = $item->meta_value;
+        }
+        return view(themeLocation().'.project-details',compact('project'));
     }
 }

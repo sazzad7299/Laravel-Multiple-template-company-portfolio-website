@@ -57,78 +57,16 @@
             </div>
             <div class="col-md-5">
                 <div class="about-img">
-                    <div class="img"> <img src="{{ asset( app('settings')['about_image'] ?? 'frontend/img/about.png')}}" class="img-fluid" alt=""> </div>
+                    <div class="img"> <img src="{{ asset( app('settings')['about_image'] ?? 'frontend/img/about.png')}}"
+                            class="img-fluid" alt=""> </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <!-- Projects -->
-<div id="projects" class="savoye-project section-padding" data-scroll-index="2">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <div class="section-title">Our Projects</div>
-            </div>
-        </div>
-        <div class="row savoye-project-items">
-            <div class="col-md-6 single-item interior">
-                <div class="savoye-project-wrap">
-                    <a href="project-page.html"><img src="{{ asset('frontend/img/projects/1.jpg')}}" alt=""></a>
-                    <div class="savoye-project-content">
-                        <p>Architecture</p>
-                        <h3><a href="project-page.html">Bungalow Dark House</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 single-item exterior">
-                <div class="savoye-project-wrap">
-                    <a href="project-page.html"><img src="{{ asset('frontend/img/projects/2.jpg')}}" alt=""></a>
-                    <div class="savoye-project-content">
-                        <p>Architecture</p>
-                        <h3><a href="project-page.html">Woodenist House<br>Lumberjack</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 single-item interior">
-                <div class="savoye-project-wrap">
-                    <a href="project-page.html"><img src="{{ asset('frontend/img/projects/3.jpg')}}" alt=""></a>
-                    <div class="savoye-project-content">
-                        <p>Exterior Design</p>
-                        <h3><a href="project-page.html">Geometric Building</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 single-item exterior">
-                <div class="savoye-project-wrap">
-                    <a href="project-page.html"><img src="{{ asset('frontend/img/projects/4.jpg')}}" alt=""></a>
-                    <div class="savoye-project-content">
-                        <p>Architecture</p>
-                        <h3><a href="project-page.html">Arch Cloud Honna<br>Didenton Villa</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 single-item interior">
-                <div class="savoye-project-wrap">
-                    <a href="project-page.html"><img src="{{ asset('frontend/img/projects/5.jpg')}}" alt=""></a>
-                    <div class="savoye-project-content">
-                        <p>Architecture</p>
-                        <h3><a href="project-page.html">Brown Monara House<br>Ottova Canada</a></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 single-item exterior">
-                <div class="savoye-project-wrap">
-                    <a href="project-page.html"><img src="{{ asset('frontend/img/projects/6.jpg')}}" alt=""></a>
-                    <div class="savoye-project-content">
-                        <p>Architecture</p>
-                        <h3><a href="project-page.html">Twin Forestland Home</a></h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<x-project :projects="$projects"></x-project>
 <!-- Parallax Section -->
 <div id="parallax-section" class="parallax-header parallax-slider-fade" data-scroll-index="3">
     <div class="owl-carousel owl-theme">

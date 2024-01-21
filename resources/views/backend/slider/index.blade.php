@@ -30,9 +30,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($sliders as $slider)
+                            @foreach($sliders as $key=>$slider)
                             <tr>
-                                <td>{{ $slider->id }}</td>
+                                <td>{{ ++$key }}</td>
                                 <td>{{ $slider->title }}</td>
                                 <td>{{ $slider->description }}</td>
                                 <td>

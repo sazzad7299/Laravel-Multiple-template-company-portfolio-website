@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Category;
 use App\Models\PostMeta;
 use App\Traits\CreatedUpdatedBy;
 use Illuminate\Database\Eloquent\Model;
@@ -23,6 +24,10 @@ class Post extends Model
     {
         $query->where('post_type', 'blog');
     }
+    public function scopeProject($query)
+    {
+        $query->where('post_type', 'project');
+    }
 
     public function scopeSearch($query, $request)
     {
@@ -41,5 +46,13 @@ class Post extends Model
     public function postmeta(){
         return $this->hasMany(PostMeta::class,'post_id');
     }
+    
+    public function category()
+    {
+        return $this->hasOne(PostMeta::class, 'post_id')
+            ->where('meta_key', 'category_id');
+            // return Category::where('id',$metaCategory->meta_value);
+    }
+    
 
 }
