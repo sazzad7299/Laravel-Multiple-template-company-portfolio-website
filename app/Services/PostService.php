@@ -43,7 +43,7 @@ class PostService
         return $post;
     }
 
-    public function update($category, $request)
+    public function update($post, $request)
     {
         $requestedData = $request->all();
         $feature_image = $request->file('feature_image');
@@ -52,14 +52,16 @@ class PostService
             if (file_exists($category->feature_image)) {
                 unlink($category->feature_image);
             }
-            $requestedData['feature_image'] = $this->image($feature_image, 'images/category/', 200, 200);
+            $requestedData['feature_image'] = $this->image($feature_image, 'images/post/', 720, 540);
         }
 
         $requestedData = Arr::except($requestedData, ['feature_image']);
 
-        $category->update($requestedData);
+        $post->update($requestedData);
+        $requestedData = Arr::except($requestedData, ['title', 'description', 'date', 'post_type', 'feature_image', 'status', '_token', '_method']);
+         $this->updateMeta($post->id, $requestedData, auth()->id());
 
-        return $category;
+        return $post;
     }
 
     public function delete($category)
@@ -74,7 +76,7 @@ class PostService
         // Store metadata in postmeta table
         foreach ($customFields as $metaKey => $metaValue) {
             if($metaKey =='gallery'){
-                $metaValue =  $this->image($metaValue, 'images/gellary/', 200, 200);
+                $metaValue =  $this->image($metaValue, 'images/gallery/', 720, 640);
             }
             PostMeta::create([
                 'post_id' => $postId,
@@ -85,4 +87,24 @@ class PostService
             
         }
     }
+    protected function updateMeta($postId, $customFields, $updatedBy)
+    {
+        // Update metadata in postmeta table
+        foreach ($customFields as $metaKey => $metaValue) {
+            if ($metaKey == 'gallery') {
+                $metaValue = $this->image($metaValue, 'images/gallery/', 720, 640);
+            }
+
+            // Use updateOrcreate to update existing record or create a new one if not exists
+            PostMeta::updateOrcreate(
+                ['post_id' => $postId, 'meta_key' => $metaKey],
+                [
+                    'meta_value' => $metaValue,
+                    'updated_by' => $updatedBy,
+                ]
+            );
+        }
+    }
+
+    
 }
