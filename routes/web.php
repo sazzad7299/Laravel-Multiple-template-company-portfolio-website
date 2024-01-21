@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LandingPageController;
 
@@ -31,6 +32,7 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.',  'middleware' => ['auth']]
     Route::resource('slider', SliderController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('blog', PostController::class);
+    Route::resource('project', ProjectController::class);
     
 
 });

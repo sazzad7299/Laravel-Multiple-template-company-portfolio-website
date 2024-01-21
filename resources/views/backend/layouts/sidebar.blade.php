@@ -39,9 +39,9 @@
                 <div class="menu-title">Project</div>
             </a>
             <ul>
-                <li> <a href="ecommerce-add-new-product.html"><i class="bi bi-circle"></i>Add Project</a>
+                <li> <a href="{{ route('admin.project.create') }}"><i class="bi bi-circle"></i>Add Project</a>
                 </li>
-                <li> <a href="ecommerce-add-new-product-2.html"><i class="bi bi-circle"></i>Project List</a>
+                <li> <a href="{{ route('admin.project.index') }}"><i class="bi bi-circle"></i>Project List</a>
                 </li>
             </ul>
         </li>

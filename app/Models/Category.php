@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Post;
+use App\Models\PostMeta;
 use App\Traits\CreatedUpdatedBy;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -21,5 +23,10 @@ class Category extends Model
     {
             return $query->where('title', 'LIKE', '%'.$request.'%')
             ->orWhere('desciption', 'LIKE', '%'.$request.'%');
+    }
+    public function posts()
+    {
+        return $this->hasMany(PostMeta::class, 'meta_value', 'id')
+            ->where('meta_key', 'category_id');
     }
 }
