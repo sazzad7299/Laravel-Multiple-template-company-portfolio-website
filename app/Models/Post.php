@@ -28,7 +28,10 @@ class Post extends Model
     {
         $query->where('post_type', 'project');
     }
-
+    public function scopeService($query)
+    {
+        $query->where('post_type', 'service');
+    }
     public function scopeSearch($query, $request)
     {
             return $query->where('title', 'LIKE', '%'.$request.'%')

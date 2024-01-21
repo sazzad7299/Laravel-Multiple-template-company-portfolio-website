@@ -26,7 +26,13 @@ class LandingPageController extends Controller
                         ->with('category:id,post_id,meta_value')
                         ->take(6)
                         ->get();
-        return view(themeLocation(). '.index',compact('sliders','blogs','projects'));
+        $services = Post::query()
+                        ->active()
+                        ->service()
+                        ->with('category:id,post_id,meta_value')
+                        ->take(6)
+                        ->get();
+        return view(themeLocation(). '.index',compact('sliders','blogs','projects','services'));
     }
     public function blogDetails($slug)
     {
@@ -40,9 +46,17 @@ class LandingPageController extends Controller
         }
         return view(themeLocation().'.blog-details',compact('blog'));
     }
-    public function serviceDetails()
+    public function serviceDetails($slug)
     {
-        return view('index');
+        $service = Post::where('slug', $slug)->firstOrFail();
+        $blogmeta = $service->postmeta;
+        foreach($blogmeta as $item){
+            if($item->meta_key =='gallery')
+            $service[$item->meta_key] = json_decode($item->meta_value);
+            else
+            $service[$item->meta_key] = $item->meta_value;
+        }
+        return view(themeLocation().'.service-details',compact('service'));
     }
     public function projectDetails($slug)
     {

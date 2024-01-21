@@ -52,9 +52,9 @@
                 <div class="menu-title">Services</div>
             </a>
             <ul>
-                <li> <a href="ecommerce-add-new-product.html"><i class="bi bi-circle"></i>Add Service</a>
+                <li> <a href="{{ route('admin.service.create') }}"><i class="bi bi-circle"></i>Add Service</a>
                 </li>
-                <li> <a href="ecommerce-add-new-product-2.html"><i class="bi bi-circle"></i>Project List</a>
+                <li> <a href="{{ route('admin.service.index') }}"><i class="bi bi-circle"></i>Service List</a>
                 </li>
             </ul>
         </li>
