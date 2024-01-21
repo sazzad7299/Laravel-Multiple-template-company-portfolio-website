@@ -16,7 +16,9 @@
                     </div>
                     <div class="cont">
                         <h4><a href="{{ url('/blog/' . $blog->slug) }}">{{$blog->title}}</a></h4>
-                        <div class="info"> <a href="{{ url('/blog/' . $blog->slug) }}"><span>{{ getCategoryTitleFromPostMeta($blog->id) }}</span></a> <a href="{{ url('/blog/' . $blog->slug) }}">{{$blog->title}}{{ formateDate($blog->date) }}</a>
+                        <div class="info"> <a
+                                href="{{ route('blogDetails', $blog->slug) }} "><span>{{ getCategoryTitleFromPostMeta($blog->category_id) }}</span></a> <a href="
+                                {{ route('blogDetails', $blog->slug) }}">{{ formateDate($blog->date) }}</a>
                         </div>
                     </div>
                 </div>

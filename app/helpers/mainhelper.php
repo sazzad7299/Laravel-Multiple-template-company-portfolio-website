@@ -31,17 +31,11 @@ if (!function_exists('formateDate')) {
 if (!function_exists('getCategoryTitleFromPostMeta')) {
     function getCategoryTitleFromPostMeta($id)
     {
-        
-        $categoryMeta = PostMeta::query()->where('post_id',$id)->where('meta_key', 'category_id')->first();
+        $category = Category::find($id);
 
-        if ($categoryMeta) {
-            $category = Category::find($categoryMeta->meta_value);
-
-            if ($category) {
-                return $category->title;
-            }
+        if ($category) {
+            return $category->title;
         }
-
         return 'Uncategories';
     }
 }

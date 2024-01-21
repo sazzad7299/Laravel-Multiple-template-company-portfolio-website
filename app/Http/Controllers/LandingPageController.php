@@ -20,7 +20,13 @@ class LandingPageController extends Controller
     {
         $blog = Post::where('slug', $slug)->firstOrFail();
         $blogmeta = $blog->postmeta;
-        return view(themeLocation().'.blog-details',compact('blog','blogmeta'));
+        foreach($blogmeta as $item){
+            if($item->meta_key =='gallery')
+            $blog[$item->meta_key] = json_decode($item->meta_value);
+            else
+            $blog[$item->meta_key] = $item->meta_value;
+        }
+        return view(themeLocation().'.blog-details',compact('blog'));
     }
     public function serviceDetails()
     {
