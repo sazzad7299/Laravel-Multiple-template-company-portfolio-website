@@ -2,10 +2,10 @@
 <aside class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
         <div>
-            <img src="{{ asset('backend/assets/images/logo-icon.png') }}" class="logo-icon" alt="logo icon">
+            <img src="{{ asset(app('settings')['site_fav_icon'] ?? 'frontend/img/favicon.png') }}" class="logo-icon" alt="logo icon">
         </div>
         <div>
-            <h4 class="logo-text">Snacked</h4>
+            <h4 class="logo-text">{{ app('settings')['site_title'] ?? 'My Website' }}</h4>
         </div>
         <div class="toggle-icon ms-auto"> <i class="bi bi-list"></i>
         </div>
@@ -21,7 +21,7 @@
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bi bi-basket2-fill"></i>
+                <div class="parent-icon"><i class=" bx bx-shape-polygon"></i>
                 </div>
                 <div class="menu-title">Category</div>
             </a>
@@ -34,7 +34,7 @@
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bi bi-basket2-fill"></i>
+                <div class="parent-icon"><i class="bx bx-medal"></i>
                 </div>
                 <div class="menu-title">Project</div>
             </a>
@@ -47,7 +47,7 @@
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bi bi-basket2-fill"></i>
+                <div class="parent-icon"><i class="bx bx-donate-heart"></i>
                 </div>
                 <div class="menu-title">Services</div>
             </a>
@@ -60,7 +60,7 @@
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bi bi-basket2-fill"></i>
+                <div class="parent-icon"><i class="bx bx-wind"></i>
                 </div>
                 <div class="menu-title">Portfolios</div>
             </a>
@@ -73,7 +73,7 @@
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bi bi-basket2-fill"></i>
+                <div class="parent-icon"><i class="bx bx-heart-circle"></i>
                 </div>
                 <div class="menu-title">Blogs</div>
             </a>
@@ -86,7 +86,7 @@
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bi bi-basket2-fill"></i>
+                <div class="parent-icon"><i class="bx bx-user"></i>
                 </div>
                 <div class="menu-title">Teams</div>
             </a>
@@ -99,7 +99,7 @@
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bi bi-basket2-fill"></i>
+                <div class="parent-icon"><i class="bx bx-star"></i>
                 </div>
                 <div class="menu-title">Testimonials</div>
             </a>
@@ -112,7 +112,7 @@
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bi bi-basket2-fill"></i>
+                <div class="parent-icon"><i class="bx bx-movie"></i>
                 </div>
                 <div class="menu-title">Sliders</div>
             </a>
@@ -123,26 +123,14 @@
                 </li>
             </ul>
         </li>
+
         <li>
-            <a class="has-arrow" href="javascript:;">
+            <a href="{{ route('admin.settings.index') }}">
                 <div class="parent-icon"><i class="bi bi-gear-fill"></i>
                 </div>
                 <div class="menu-title">Settings</div>
             </a>
-            <ul>
-                <li> <a class="has-arrow" href="javascript:;"><i class="bi bi-circle"></i>Level One</a>
-                    <ul>
-                        <li> <a class="has-arrow" href="javascript:;"><i class="bi bi-circle"></i>Level Two</a>
-                            <ul>
-                                <li> <a href="javascript:;"><i class="bi bi-circle"></i>Level Three</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
         </li>
-
     </ul>
     <!--end navigation-->
 </aside>

@@ -11,7 +11,7 @@ class StoreSettingsRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class StoreSettingsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'site_default_logo'=>'nullable|image',
+            'site_fav_icon'=>'nullable|image'
         ];
     }
 }

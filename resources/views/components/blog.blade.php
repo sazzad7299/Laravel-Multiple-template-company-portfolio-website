@@ -10,7 +10,7 @@
             <div class="col-md-4">
                 <div class="item">
                     <div class="post-img">
-                        <a href="post.html">
+                        <a href="{{ url('/blog/' . $blog->slug) }}">
                             <div class="img"> <img src="{{ asset($blog->feature_image)}}" alt=""> </div>
                         </a>
                     </div>

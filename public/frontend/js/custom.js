@@ -38,19 +38,22 @@ $(function () {
 		onPageChange: null, // function(pageIndex) that is called when page is changed
 		topOffset: -70 // offste (in px) for fixed top navigation
 	});
-	
+	$(".navbar .light-logo").addClass("d-none");
 	// Navbar scrolling background
 	wind.on("scroll", function () {
 		var bodyScroll = wind.scrollTop()
 			, navbar = $(".navbar")
-			, logo = $(".navbar .logo> img");
+			, darklogo = $(".navbar .dark-logo")
+			, lightlogo = $(".navbar .light-logo");
 		if (bodyScroll > 100) {
 			navbar.addClass("nav-scroll");
-			logo.attr('src', '/frontend/img/logo-light.png');
+			darklogo.addClass("d-none");
+			lightlogo.removeClass("d-none");
 		}
 		else {
 			navbar.removeClass("nav-scroll");
-			logo.attr('src', '/frontend/img/logo-light.png');
+			darklogo.removeClass("d-none");
+			lightlogo.addClass("d-none");
 		}
 	});
 	// Close navbar-collapse when a  clicked

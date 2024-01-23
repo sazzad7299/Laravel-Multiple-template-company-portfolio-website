@@ -145,7 +145,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mb-30 text-left caption">
-                    <div class="section-title">{{ app('settings')['contanct_title'] }}</div>
+                    <div class="section-title">{{ app('settings')['contact_title'] }}</div>
                 </div>
             </div>
             <div class="row">

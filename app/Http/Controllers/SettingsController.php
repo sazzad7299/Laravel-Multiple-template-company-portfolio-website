@@ -2,18 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Settings;
+use App\Services\SettingsService;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Requests\StoreSettingsRequest;
 use App\Http\Requests\UpdateSettingsRequest;
-use App\Models\Settings;
 
 class SettingsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    protected $SettingService;
+
+    public function __construct(SettingsService $SettingService)
+    {
+        $this->SettingService = $SettingService;
+    }
     public function index()
     {
-        //
+        return view('backend.settings.index');
     }
 
     /**
@@ -29,7 +35,16 @@ class SettingsController extends Controller
      */
     public function store(StoreSettingsRequest $request)
     {
-        //
+        // return $request->all();
+        $this->SettingService->store($request);
+        try {
+            // return $request->all();
+            $this->SettingService->store($request);
+            Cache::forget('settings');
+            return redirect()->route('admin.settings.index')->with('success','Update Information Successfully');
+        } catch (\Throwable $th) {
+            return redirect()->route('admin.settings.index')->with('error',$th->getMessage());
+        }
     }
 
     /**
