@@ -32,6 +32,10 @@ class Post extends Model
     {
         $query->where('post_type', 'service');
     }
+    public function scopePortfolio($query)
+    {
+        $query->where('post_type', 'portfolio');
+    }
     public function scopeSearch($query, $request)
     {
             return $query->where('title', 'LIKE', '%'.$request.'%')
@@ -49,13 +53,13 @@ class Post extends Model
     public function postmeta(){
         return $this->hasMany(PostMeta::class,'post_id');
     }
-    
+
     public function category()
     {
         return $this->hasOne(PostMeta::class, 'post_id')
             ->where('meta_key', 'category_id');
             // return Category::where('id',$metaCategory->meta_value);
     }
-    
+
 
 }
