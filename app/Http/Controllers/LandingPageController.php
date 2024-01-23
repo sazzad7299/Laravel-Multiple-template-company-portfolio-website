@@ -32,7 +32,21 @@ class LandingPageController extends Controller
                         ->with('category:id,post_id,meta_value')
                         ->take(6)
                         ->get();
-        return view(themeLocation(). '.index',compact('sliders','blogs','projects','services'));
+        $portfolios = Post::query()
+                        ->active()
+                        ->portfolio()
+                        ->with('category:id,post_id,meta_value')
+                        ->latest()
+                        ->get();
+        $teams = Post::query()
+                        ->active()
+                        ->team()
+                        ->with('postmeta:id,post_id,meta_key,meta_value')
+                        ->with('category:id,post_id,meta_value')
+                        ->latest()
+                        ->get();
+                        // return $teams;
+        return view(themeLocation(). '.index',compact('sliders','blogs','projects','services','portfolios','teams'));
     }
     public function blogDetails($slug)
     {

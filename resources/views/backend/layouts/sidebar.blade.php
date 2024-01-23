@@ -104,9 +104,9 @@
                 <div class="menu-title">Teams</div>
             </a>
             <ul>
-                <li> <a href="ecommerce-add-new-product.html"><i class="bi bi-circle"></i>Add Team</a>
+                <li> <a href="{{ Request::url() != route('admin.team.create') ? route('admin.team.create') : '#' }}"><i class="bi bi-circle"></i>Add Team</a>
                 </li>
-                <li> <a href="ecommerce-add-new-product-2.html"><i class="bi bi-circle"></i>Team List</a>
+                <li> <a href="{{ Request::url() != route('admin.team.index') ? route('admin.team.index') : '#' }}"><i class="bi bi-circle"></i>Team List</a>
                 </li>
             </ul>
         </li>
