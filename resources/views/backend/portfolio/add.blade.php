@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('admin')
-<form action="{{ route('admin.project.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('admin.portfolio.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('post')
     <div class="row">
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="col-md-4 mb-3">
-            <input type="hidden" name="post_type" value="project">
+            <input type="hidden" name="post_type" value="portfolio">
             <div class="card">
                 <div class="card-header">
                     <h4>Publish</h4>
