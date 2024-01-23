@@ -36,6 +36,10 @@ class Post extends Model
     {
         $query->where('post_type', 'portfolio');
     }
+    public function scopeTeam($query)
+    {
+        $query->where('post_type', 'team');
+    }
     public function scopeSearch($query, $request)
     {
             return $query->where('title', 'LIKE', '%'.$request.'%')

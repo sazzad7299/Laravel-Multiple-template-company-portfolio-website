@@ -4,11 +4,11 @@
         <div class="card-header">
             <div class="row align-items-center">
                 <div class="col-lg-9 col-xl-10">
-                    <h4>Portfolio List</h4>
+                    <h4>Team List</h4>
                 </div>
                 <div class="col-lg-3 col-xl-2">
-                    <a href="{{ route('admin.portfolio.create') }}" class="btn btn-primary mb-3 mb-lg-0"><i
-                            class="bi bi-plus-square-fill"></i>Add Portfolio</a>
+                    <a href="{{ route('admin.team.create') }}" class="btn btn-primary mb-3 mb-lg-0"><i
+                            class="bi bi-plus-square-fill"></i>Add Team</a>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
                             <tr>
                                 <th>SL</th>
                                 <th>Title</th>
-                                <th>Description</th>
+                                <th>Designation</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -37,14 +37,14 @@
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-center gap-3 fs-6">
-                                        <a href="{{ route('admin.portfolio.edit', [$post->id]) }}"
+                                        <a href="{{ route('admin.team.edit', [$post->id]) }}"
                                             class="btn btn-sm btn-outline-primary" data-bs-toggle="tooltip"
                                             title="Edit"><i class="bi bi-pencil-fill"></i></a>
                                         <a href="javascript:;" class="btn btn-sm btn-outline-danger"
                                             data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"
                                             onclick="if(confirm('Are You Sure To Delete?')){ event.preventDefault(); getElementById('delete-form-{{ $post->id }}').submit(); } else { event.preventDefault(); }"><i
                                                 class="bi bi-trash-fill"></i></a>
-                                        <form action="{{ route('admin.portfolio.destroy', [$post->id]) }}" method="post"
+                                        <form action="{{ route('admin.team.destroy', [$post->id]) }}" method="post"
                                             style="display: none;" id="delete-form-{{ $post->id }}">
                                             @csrf
                                             {{ method_field('DELETE') }}
