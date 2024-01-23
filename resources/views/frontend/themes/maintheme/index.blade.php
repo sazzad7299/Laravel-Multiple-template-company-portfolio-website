@@ -141,30 +141,29 @@
 <!-- Top Footer Banner -->
 <div id="contact" class="topbanner-footer" data-scroll-index="9">
     <div class="section-padding banner-img valign bg-img bg-fixed" data-overlay-darkgray="1"
-        data-background="{{asset('frontend/img/slider/1.jpg')}}">
+        data-background="{{asset('frontend/img/slider/2.jpg')}}">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mb-30 text-left caption">
-                    <div class="section-title">Contact Us</div>
+                    <div class="section-title">{{ app('settings')['contanct_title'] }}</div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
                     <h6>Phone</h6>
-                    <h5 class="mb-30">+1 123-456-0606</h5>
-                    <p class="mb-30">Monday - Friday: 8am - 6pm<br>Saturday - Sunday: 9am - 3pm</p>
+                    <h5 class="mb-30">{{ app('settings')['contact_phone'] }}</h5>
+                    
                 </div>
                 <div class="col-md-4">
                     <h6>Email</h6>
-                    <h5 class="mb-30">info@architecture.com</h5>
-                    <p class="mb-30">24 King St, Charleston<br>SC 29401 USA</p>
+                    <h5 class="mb-30"> {{ app('settings')['contact_email'] }}</h5>
+                    <p class="mb-30">{{ app('settings')['office_address'] }}</p>
                 </div>
                 <div class="col-md-3 offset-md-1">
                     <div class="vid-area">
                         <a class="play-button gallery-masonry-item-img-link d-block" data-type="iframe"
                             data-fancybox="iframe"
-                            href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3354.758017847153!2d-79.93420398486563!3d32.77215479154045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88fe7a1ae84ff639%3A0xe5c782f71924a526!2s24%20King%20St%2C%20Charleston%2C%20SC%2029401%2C%20USA!5e0!3m2!1sen!2str!4v1631170502143!5m2!1sen!2str">
-                            <svg class="circle-fill">
+                            href="{{ app('settings')['g_map'] }}">
                                 <circle cx="43" cy="43" r="39" stroke="#fff" stroke-width=".5"></circle>
                             </svg>
                             <svg class="circle-track">
