@@ -2,9 +2,12 @@
     <div class="container">
         <!-- Logo -->
         <div class="logo-wrapper">
-            <a class="logo" href="{{ url('/')  }}"> <img
-                    src="{{ asset(app('settings')['site_light_logo'] ?? 'frontend/img/logo-light.png')}}" alt="">
+            <a class="logo dark-logo" href="{{ url('/')  }}"> <img
+                    src="{{ asset(app('settings')['site_default_logo'] ?? 'frontend/img/logo-light.png')}}" alt="">
             </a>
+            <a class="logo light-logo" href="{{ url('/')  }}"> <img
+                src="{{ asset(app('settings')['site_light_logo'] ?? 'frontend/img/logo-light.png')}}" alt="">
+        </a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span
