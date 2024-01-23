@@ -40,6 +40,10 @@ class Post extends Model
     {
         $query->where('post_type', 'team');
     }
+    public function scopeTestiominal($query)
+    {
+        $query->where('post_type', 'review');
+    }
     public function scopeSearch($query, $request)
     {
             return $query->where('title', 'LIKE', '%'.$request.'%')

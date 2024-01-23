@@ -88,19 +88,6 @@
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bi bi-basket2-fill"></i>
                 </div>
-                <div class="menu-title">Ads</div>
-            </a>
-            <ul>
-                <li> <a href="ecommerce-add-new-product.html"><i class="bi bi-circle"></i>Add Ad</a>
-                </li>
-                <li> <a href="ecommerce-add-new-product-2.html"><i class="bi bi-circle"></i>Ad List</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bi bi-basket2-fill"></i>
-                </div>
                 <div class="menu-title">Teams</div>
             </a>
             <ul>
@@ -117,9 +104,9 @@
                 <div class="menu-title">Testimonials</div>
             </a>
             <ul>
-                <li> <a href="ecommerce-add-new-product.html"><i class="bi bi-circle"></i>Add Testimonial</a>
+                <li> <a href="{{ Request::url() != route('admin.testiominal.create') ? route('admin.testiominal.create') : '#' }}"><i class="bi bi-circle"></i>Add Testimonial</a>
                 </li>
-                <li> <a href="ecommerce-add-new-product-2.html"><i class="bi bi-circle"></i>Testimonial List</a>
+                <li> <a href="{{ Request::url() != route('admin.testiominal.index') ? route('admin.testiominal.index') : '#' }}"><i class="bi bi-circle"></i>Testimonial List</a>
                 </li>
             </ul>
         </li>

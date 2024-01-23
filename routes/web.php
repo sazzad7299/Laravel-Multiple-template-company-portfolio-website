@@ -10,6 +10,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\TestiominalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +39,5 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.',  'middleware' => ['auth']]
     Route::resource('service', ServiceController::class);
     Route::resource('portfolio', PortfolioController::class);
     Route::resource('team', TeamController::class);
+    Route::resource('testiominal', TestiominalController::class);
 });
