@@ -22,7 +22,7 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         $categories = $this->categoryService->index($request);
-        
+
         return view('backend.category.index',compact('categories'));
     }
 
@@ -31,7 +31,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        
+
         return view('backend.category.add');
     }
 
@@ -45,9 +45,9 @@ class CategoryController extends Controller
             $this->categoryService->store($category,$request);
             return redirect()->route('admin.category.index')->with('success','Category Added Successfully');
         } catch (\Throwable $th) {
-            //throw $th;
+            return redirect()->route('admin.category.index')->with('error',$th->getMessage());
         }
-        
+
     }
 
     /**

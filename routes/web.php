@@ -8,6 +8,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\PortfolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +35,5 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.',  'middleware' => ['auth']]
     Route::resource('blog', PostController::class);
     Route::resource('project', ProjectController::class);
     Route::resource('service', ServiceController::class);
+    Route::resource('portfolio', PortfolioController::class);
 });

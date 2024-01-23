@@ -65,9 +65,9 @@
                 <div class="menu-title">Portfolios</div>
             </a>
             <ul>
-                <li> <a href="ecommerce-add-new-product.html"><i class="bi bi-circle"></i>Add Portfolio</a>
+                <li> <a href="{{ route('admin.portfolio.create') }}"><i class="bi bi-circle"></i>Add Portfolio</a>
                 </li>
-                <li> <a href="ecommerce-add-new-product-2.html"><i class="bi bi-circle"></i>Portfolio List</a>
+                <li> <a href="{{ route('admin.portfolio.index') }}"><i class="bi bi-circle"></i>Portfolio List</a>
                 </li>
             </ul>
         </li>
