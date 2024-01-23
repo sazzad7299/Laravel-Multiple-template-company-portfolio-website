@@ -73,6 +73,18 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
+                                <label class="form-label">Light Logo (373px, 108px)</label>
+                                <input class="form-control form-control-sm" id="formFileSm" type="file" name="site_light_logo">
+                                @error('site_light_logo')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="mb-3 d-flex justify-content-center">
+                                <img src="{{ asset( app('settings')['site_light_logo']  )}}" alt="" style="border:2px solid #ccc">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
                                 <label class="form-label">Fav icon ((180px, 180px))</label>
                                 <input class="form-control form-control-sm" id="formFileSm" type="file" name="site_fav_icon">
                                 @error('site_fav_icon')
