@@ -12,10 +12,12 @@
                     <div class="row">
                         <div class="col-md-8 mt-30">
                             <div class="o-hidden">
-                                <h6>{{ $slider->title }}</h6>
+                                <h6>{{ $slider->category->title }}</h6>
                                 <h1>{{ $slider->title }}</h1>
                                 <p>{{ $slider->description }}</p>
-                                <a href="project-page.html" class="btn float-btn flat-btn">Discover</a>
+                                @if(!empty($slider->button_url))
+                                <a href="{{ $slider->button_url }}" class="btn float-btn flat-btn">{{ $slider->button_text }}</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -33,7 +35,7 @@
             @foreach(app('categories') as $key=>$category)
             <div class="col-md-3  {{ $key == 0 ? 'offset-md-6' : '' }} ">
                 <div class="slider-services-box b-right b-bottom">
-                    <a href="architectural-design.html">
+                    <a href="#">
                         <div class="slider-services-box-info">
                             <img src="{{ asset($category->feature_image)}}" class="services-icon" alt="">
                             <h5>{{ $category->title }}</h5>
@@ -67,63 +69,9 @@
 
     <!-- Projects -->
     <x-project :projects="$projects"></x-project>
+    <x-featured :featureds="$featureds"></x-featured>
     <!-- Parallax Section -->
-    <div id="parallax-section" class="parallax-header parallax-slider-fade" data-scroll-index="3">
-        <div class="owl-carousel owl-theme">
-            <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
-            <div class="text-left item bg-img" data-overlay-dark="3"
-                data-background="{{asset('frontend/img/slider/1.jpg')}}">
-                <div class="v-middle caption">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="o-hidden">
-                                    <h6>Discover</h6>
-                                    <h2>Blackspace House</h2>
-                                    <p><a href="project-page.html"><i class="ti-location-pin"></i> North Branch, NY,
-                                            United States</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-left item bg-img" data-overlay-dark="3"
-                data-background="{{asset('frontend/img/slider/2.jpg')}}">
-                <div class="v-middle caption">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="o-hidden">
-                                    <h6>Discover</h6>
-                                    <h2>One Stone House</h2>
-                                    <p><a href="project-page.html"><i class="ti-location-pin"></i> Princeton, NJ, United
-                                            States</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-left item bg-img" data-overlay-dark="4"
-                data-background="{{asset('frontend/img/slider/1.jpg')}}">
-                <div class="v-middle caption">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="o-hidden">
-                                    <h6>Discover</h6>
-                                    <h2>Collin Bea House</h2>
-                                    <p><a href="project-page.html"><i class="ti-location-pin"></i> Ashburn, VA, United
-                                            States</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 <!-- Services -->
    <x-service :services="$services"></x-service>
     <!-- Testiominals -->
@@ -152,7 +100,7 @@
                 <div class="col-md-4">
                     <h6>Phone</h6>
                     <h5 class="mb-30">{{ app('settings')['contact_phone'] }}</h5>
-                    
+
                 </div>
                 <div class="col-md-4">
                     <h6>Email</h6>

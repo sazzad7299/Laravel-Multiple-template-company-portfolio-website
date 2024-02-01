@@ -24,6 +24,7 @@ class StoreSliderRequest extends FormRequest
         return [
             'title'=>'required',
             'description'=>'nullable',
+            'category_id'=>'nullable',
             'position'=>'nullable',
             'button_text'=>'nullable',
             'button_url'=>'nullable',

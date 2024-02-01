@@ -10,7 +10,7 @@
                 <div class="owl-carousel owl-theme">
                     @foreach($services as $service)
                     <div class="square-flip">
-                        <div class="square bg-img" data-background="{{asset('frontend/img/services/1.jpg')}}">
+                        <div class="square bg-img" data-background="{{asset($service->feature_image)}}">
                             <div class="square-container d-flex align-items-end justify-content-end">
                                 <div class="box-title text-vertical">
                                     <h4>{{ getCategoryTitleFromPostMeta($service->category->meta_value) }}</h4>
@@ -20,7 +20,7 @@
                         </div>
                         <div class="square2">
                             <div class="square-container2">
-                                <h4>{{ getCategoryTitleFromPostMeta($service->category->meta_value) }}</h4>
+                                <h4>{{ $service->title }}</h4>
                                 <p>{{ $service->description }}</p>
                                 <div class="btn-line"><a href="{{ route('serviceDetails',$service->slug) }}">Read more</a></div>
                             </div>

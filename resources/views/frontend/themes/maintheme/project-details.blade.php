@@ -1,5 +1,5 @@
 @extends('frontend.themes.maintheme.layouts.app')
-@section('title','Title')
+@section('title',$project->title)
 @section('frontend')
     <!-- Header Banner -->
     <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4"
