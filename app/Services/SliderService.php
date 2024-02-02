@@ -32,7 +32,7 @@ class SliderService
         $requestedData = $request->all();
         $feature_image = $request->file('feature_image');
         if ($feature_image) {
-            $requestedData['feature_image'] = $this->image($feature_image, 'images/slider/', 1080,720);
+            $requestedData['feature_image'] = $this->image($feature_image, 'public/images/slider/', 1080,720);
         }
         $slider->fill($requestedData)->save();
 
@@ -48,7 +48,7 @@ class SliderService
             if (file_exists($slider->feature_image)) {
                 unlink($slider->feature_image);
             }
-            $requestedData['feature_image'] = $this->image($feature_image, 'images/slider/', 1080,720,);
+            $requestedData['feature_image'] = $this->image($feature_image, 'public/images/slider/', 1080,720,);
         }
 
         $requestedData = Arr::except($requestedData, ['feature_image']);
