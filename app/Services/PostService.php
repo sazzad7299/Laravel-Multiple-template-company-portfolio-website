@@ -44,7 +44,7 @@ class PostService
         }
         $feature_image = $request->file('feature_image');
         if ($feature_image) {
-            $requestedData['feature_image'] = $this->image($feature_image, 'images/post/', $width, $height);
+            $requestedData['feature_image'] = $this->image($feature_image, 'public/images/post/', $width, $height);
         }
         $post->fill($requestedData)->save();
 
@@ -71,7 +71,7 @@ class PostService
             if (file_exists($post->feature_image)) {
                 unlink($post->feature_image);
             }
-            $requestedData['feature_image'] = $this->image($feature_image, 'images/post/', $width, $height);
+            $requestedData['feature_image'] = $this->image($feature_image, 'public/images/post/', $width, $height);
         }
 
         $requestedData = Arr::except($requestedData, ['feature_image']);
@@ -95,7 +95,7 @@ class PostService
         // Store metadata in postmeta table
         foreach ($customFields as $metaKey => $metaValue) {
             if($metaKey =='gallery'){
-                $metaValue =  $this->image($metaValue, 'images/gallery/', 720, 640);
+                $metaValue =  $this->image($metaValue, 'public/images/gallery/', 720, 640);
             }
             PostMeta::create([
                 'post_id' => $postId,
@@ -111,7 +111,7 @@ class PostService
         // Update metadata in postmeta table
         foreach ($customFields as $metaKey => $metaValue) {
             if ($metaKey == 'gallery') {
-                $metaValue = $this->image($metaValue, 'images/gallery/', 720, 640);
+                $metaValue = $this->image($metaValue, 'public/images/gallery/', 720, 640);
             }
 
             // Use updateOrcreate to update existing record or create a new one if not exists
@@ -124,6 +124,4 @@ class PostService
             );
         }
     }
-
-
 }

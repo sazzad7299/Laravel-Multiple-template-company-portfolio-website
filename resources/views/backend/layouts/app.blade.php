@@ -28,7 +28,6 @@
     <link href="{{ asset('backend/assets/css/semi-dark.css')}}" rel="stylesheet" />
     <link href="{{ asset('backend/assets/css/header-colors.css')}}" rel="stylesheet" />
     <title>{{ config('app.name', 'Laravel') }}</title>
-
 </head>
 
 <body>
@@ -39,7 +38,7 @@
          @include('backend.layouts.navbar')
         <!--end top header-->
 
-       
+
         <!--start sidebar -->
         @include('backend.layouts.sidebar')
         <!--end sidebar -->

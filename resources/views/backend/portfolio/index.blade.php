@@ -22,6 +22,7 @@
                                 <th>SL</th>
                                 <th>Title</th>
                                 <th>Description</th>
+                                <th>Type</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -32,6 +33,9 @@
                                 <td>{{ ++$key }}</td>
                                 <td>{{ $post->title }}</td>
                                 <td>{!! Str::limit($post->description, 30) !!}</td>
+                                <td>
+                                    {{ $post->post_type}}
+                                </td>
                                 <td>
                                     {{ $post->status ==1 ?'Active' :"Inactive" }}
                                 </td>

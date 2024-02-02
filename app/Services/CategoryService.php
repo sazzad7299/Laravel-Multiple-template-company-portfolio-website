@@ -32,7 +32,7 @@ class CategoryService
         $requestedData = $request->all();
         $feature_image = $request->file('feature_image');
         if ($feature_image) {
-            $requestedData['feature_image'] = $this->image($feature_image, 'images/category/', 200,200);
+            $requestedData['feature_image'] = $this->image($feature_image, 'public/images/category/', 200,200);
         }
         $category->fill($requestedData)->save();
 
@@ -48,7 +48,7 @@ class CategoryService
             if (file_exists($category->feature_image)) {
                 unlink($category->feature_image);
             }
-            $requestedData['feature_image'] = $this->image($feature_image, 'images/category/', 200,200,);
+            $requestedData['feature_image'] = $this->image($feature_image, 'public/images/category/', 200,200,);
         }
 
         $requestedData = Arr::except($requestedData, ['feature_image']);
