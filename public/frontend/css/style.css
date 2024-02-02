@@ -173,7 +173,7 @@ button {
     transition: all 200ms linear;
     text-transform: uppercase;
     border-radius: 0;
-    
+
 }
 
 input[type="submit"]:hover,
@@ -611,6 +611,7 @@ float: left;
     position: relative;
     padding: 27px 45px;
     padding-left: 45px;
+    background: #272727;
 }
 .logo-wrapper .logo h2 {
     font-family: 'Khand', sans-serif;
@@ -2295,7 +2296,7 @@ line-height: 1em;
   transition: -webkit-transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
   -o-transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), 
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
   -webkit-transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .gallery-masonry-wrapper .gallery-masonry-item-title {
@@ -3417,7 +3418,7 @@ color: #fff;
     padding-left: 15px;
 }
     .nav-scroll .logo-wrapper {
-     padding-left: 15px; 
+     padding-left: 15px;
 }
     .nav-scroll .logo {}
     .logo-img {
@@ -3498,7 +3499,7 @@ color: #fff;
     }
     .slider-services-box-info h5 {
     font-size: 15px;
-}  
+}
 }
 @media screen and (max-width: 767px) {
     .logo-wrapper .logo h2 {

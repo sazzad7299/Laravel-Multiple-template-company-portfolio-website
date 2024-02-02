@@ -42,6 +42,13 @@
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
+                        <label class="form-label">Type</label>
+                        <select name="post_type" id="post_type" class="form-control">
+                            <option value="featured">Featured</option>
+                            <option value="portfolio">Portfolio</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label">Status</label>
                         <select name="status" id="status" class="form-control">
                             <option value="1">Active</option>

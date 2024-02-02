@@ -31,13 +31,23 @@ class PostService
     public function store($post, $request)
     {
         $requestedData = $request->all();
-    
+
+        if($requestedData['post_type'] === "featured"){
+            $width = 1200;
+            $height = 480;
+        }elseif($requestedData['post_type'] === "team"){
+            $width = 200;
+            $height = 200;
+        }else{
+            $width = 720;
+            $height = 540;
+        }
         $feature_image = $request->file('feature_image');
         if ($feature_image) {
-            $requestedData['feature_image'] = $this->image($feature_image, 'images/post/', 720, 540);
+            $requestedData['feature_image'] = $this->image($feature_image, 'images/post/', $width, $height);
         }
         $post->fill($requestedData)->save();
-        
+
         $requestedData = Arr::except($requestedData, ['title','description','date','post_type','feature_image','status','_token', '_method']);
         $this->storeMeta($post->id, $requestedData, auth()->id());
         return $post;
@@ -47,12 +57,21 @@ class PostService
     {
         $requestedData = $request->all();
         $feature_image = $request->file('feature_image');
-
+        if($requestedData['post_type'] === "featured"){
+            $width = 1200;
+            $height = 480;
+        }elseif($requestedData['post_type'] === "team"){
+            $width = 200;
+            $height = 200;
+        }else{
+            $width = 720;
+            $height = 540;
+        }
         if ($feature_image) {
-            if (file_exists($category->feature_image)) {
-                unlink($category->feature_image);
+            if (file_exists($post->feature_image)) {
+                unlink($post->feature_image);
             }
-            $requestedData['feature_image'] = $this->image($feature_image, 'images/post/', 720, 540);
+            $requestedData['feature_image'] = $this->image($feature_image, 'images/post/', $width, $height);
         }
 
         $requestedData = Arr::except($requestedData, ['feature_image']);
@@ -84,7 +103,7 @@ class PostService
                 'meta_value' => $metaValue,
                 'created_by' => $createdBy,
             ]);
-            
+
         }
     }
     protected function updateMeta($postId, $customFields, $updatedBy)
@@ -106,5 +125,5 @@ class PostService
         }
     }
 
-    
+
 }

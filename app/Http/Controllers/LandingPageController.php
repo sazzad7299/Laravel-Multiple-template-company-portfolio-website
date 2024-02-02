@@ -12,7 +12,7 @@ class LandingPageController extends Controller
 {
     public function index()
     {
-        $sliders = Slider::query()->active()->take(6)->get();
+        $sliders = Slider::query()->active()->take(6)->with('category:id,title')->get();
         $blogs = Post::query()
                         ->active()
                         ->blog()
@@ -38,6 +38,12 @@ class LandingPageController extends Controller
                         ->with('category:id,post_id,meta_value')
                         ->latest()
                         ->get();
+        $featureds = Post::query()
+                        ->active()
+                        ->featured()
+                        ->with('category:id,post_id,meta_value')
+                        ->latest()
+                        ->get();
         $teams = Post::query()
                         ->active()
                         ->team()
@@ -52,7 +58,7 @@ class LandingPageController extends Controller
                         ->with('category:id,post_id,meta_value')
                         ->latest()
                         ->get();
-        return view(themeLocation(). '.index',compact('sliders','blogs','projects','services','portfolios','teams','testiominals'));
+        return view(themeLocation(). '.index',compact('sliders','blogs','projects','services','portfolios','featureds','teams','testiominals'));
     }
     public function blogDetails($slug)
     {

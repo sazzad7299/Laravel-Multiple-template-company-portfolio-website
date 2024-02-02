@@ -17,7 +17,7 @@
                     <div class="cont">
                         <h4><a href="{{ url('/blog/' . $blog->slug) }}">{{$blog->title}}</a></h4>
                         <div class="info"> <a
-                                href="{{ route('blogDetails', $blog->slug) }} "><span>{{ getCategoryTitleFromPostMeta($blog->category->meta_value) }}</span></a> <a href="
+                                href="{{ route('blogDetails', $blog->slug) }} "><span>{{ getCategoryTitleFromPostMeta(optional($blog->category)->meta_value) }}</span></a> <a href="
                                 {{ route('blogDetails', $blog->slug) }}">{{ formateDate($blog->date) }}</a>
                         </div>
                     </div>
