@@ -70,6 +70,8 @@
     <!-- Projects -->
     <x-project :projects="$projects"></x-project>
     <x-featured :featureds="$featureds"></x-featured>
+
+    <x-gallery :gallerys="$gallerys"></x-gallery>
     <!-- Parallax Section -->
 
 <!-- Services -->
@@ -82,8 +84,8 @@
     <x-portfolio :portfolios="$portfolios"></x-portfolio>
 
 <!-- Blog -->
-<x-blog :blogs="$blogs">
-</x-blog>
+<x-blog :blogs="$blogs"></x-blog>
+
 <!-- hr -->
 <hr class="line-vr-section">
 <!-- Top Footer Banner -->
