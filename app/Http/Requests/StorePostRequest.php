@@ -25,7 +25,7 @@ class StorePostRequest extends FormRequest
             'title'=>'required',
             'description'=>'nullable',
             'date'=>'nullable',
-            'feature_image'=>'nullable',
+            // 'feature_image'=>'required',
             'status'=>'nullable',
         ];
     }

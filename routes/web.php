@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CategoryController;
@@ -28,6 +29,7 @@ Route::get('/', [LandingPageController::class,'index'])->name('landing');
 Route::get('/project/{details}', [LandingPageController::class,'projectDetails'])->name('projectDetails');
 Route::get('/services/{details}', [LandingPageController::class,'serviceDetails'])->name('serviceDetails');
 Route::get('/blog/{details}', [LandingPageController::class,'blogDetails'])->name('blogDetails');
+Route::get('/gallery/{details}', [LandingPageController::class,'galleryDetails'])->name('galleryDetails');
 
 Auth::routes();
 Route::group(['prefix' => '/admin', 'as' => 'admin.',  'middleware' => ['auth']], function () {
@@ -38,6 +40,7 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.',  'middleware' => ['auth']]
     Route::resource('blog', PostController::class);
     Route::resource('project', ProjectController::class);
     Route::resource('service', ServiceController::class);
+    Route::resource('gallery', GalleryController::class);
     Route::resource('portfolio', PortfolioController::class);
     Route::resource('team', TeamController::class);
     Route::resource('testiominal', TestiominalController::class);

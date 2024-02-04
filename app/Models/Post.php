@@ -48,6 +48,10 @@ class Post extends Model
     {
         $query->where('post_type', 'review');
     }
+    public function scopeGallery($query)
+    {
+        $query->where('post_type', 'gallery');
+    }
     public function scopeSearch($query, $request)
     {
             return $query->where('title', 'LIKE', '%'.$request.'%')
