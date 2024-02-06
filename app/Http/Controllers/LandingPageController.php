@@ -83,9 +83,9 @@ class LandingPageController extends Controller
         $blogmeta = $gallery->postmeta;
         foreach($blogmeta as $item){
             if($item->meta_key =='gallery')
-            $gallery[$item->meta_key] = json_decode($item->meta_value);
+                $gallery[$item->meta_key] = json_decode($item->meta_value);
             else
-            $gallery[$item->meta_key] = $item->meta_value;
+                $gallery[$item->meta_key] = $item->meta_value;
         }
         return view(themeLocation().'.gallery-details',compact('gallery'));
     }
