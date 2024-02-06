@@ -69,7 +69,7 @@ class GalleryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePostRequest $request, Post $service)
+    public function update(UpdatePostRequest $request, Post $gallery)
     {
         try {
             $this->postService->update($service,$request);
@@ -83,7 +83,7 @@ class GalleryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $service)
+    public function destroy(Post $gallery)
     {
         $this->postService->delete($service);
         return redirect()->route('admin.gallery.index')->with('success','Gallery Deleted Successfully');
