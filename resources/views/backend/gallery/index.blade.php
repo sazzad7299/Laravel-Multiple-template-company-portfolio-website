@@ -4,7 +4,7 @@
         <div class="card-header">
             <div class="row align-items-center">
                 <div class="col-lg-9 col-xl-10">
-                    <h4>gallery List</h4>
+                    <h4>Gallery List</h4>
                 </div>
                 <div class="col-lg-3 col-xl-2">
                     <a href="{{ route('admin.gallery.create') }}" class="btn btn-primary mb-3 mb-lg-0"><i
