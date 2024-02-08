@@ -5,65 +5,84 @@
     <div class="col">
         <div class="card rounded-4">
             <div class="card-body">
-                <div class="d-flex align-items-center">
+                <a href="{{ route('admin.project.create') }}"    class="d-flex align-items-center">
                     <div class="">
-                        <p class="mb-1">Total Orders</p>
-                        <h4 class="mb-0">5.8K</h4>
-                        <p class="mb-0 mt-2 font-13"><i class="bi bi-arrow-up"></i><span>22.5% from last week</span></p>
+                        <p class="mb-1">New Project</p>
                     </div>
                     <div class="ms-auto widget-icon bg-primary text-white">
-                        <i class="bi bi-basket2"></i>
+                        <i class="bx bx-medal"></i>
                     </div>
-                </div>
-
+                </a>
             </div>
         </div>
     </div>
     <div class="col">
         <div class="card rounded-4">
             <div class="card-body">
-                <div class="d-flex align-items-center">
+                <a href="{{ route('admin.service.create') }}"    class="d-flex align-items-center">
                     <div class="">
-                        <p class="mb-1">Total Income</p>
-                        <h4 class="mb-0">$9,786</h4>
-                        <p class="mb-0 mt-2 font-13"><i class="bi bi-arrow-up"></i><span>13.2% from last week</span></p>
+                        <p class="mb-1">New Service</p>
                     </div>
-                    <div class="ms-auto widget-icon bg-success text-white">
-                        <i class="bi bi-currency-dollar"></i>
+                    <div class="ms-auto widget-icon bg-primary text-white">
+                        <i class="bx bx-donate-heart"></i>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
     <div class="col">
         <div class="card rounded-4">
             <div class="card-body">
-                <div class="d-flex align-items-center">
+                <a href="{{ route('admin.portfolio.create') }}"    class="d-flex align-items-center">
                     <div class="">
-                        <p class="mb-1">Total Views</p>
-                        <h4 class="mb-0">875</h4>
-                        <p class="mb-0 mt-2 font-13"><i class="bi bi-arrow-up"></i><span>12.3% from last week</span></p>
+                        <p class="mb-1">New Portfolio</p>
                     </div>
-                    <div class="ms-auto widget-icon bg-orange text-white">
-                        <i class="bi bi-emoji-heart-eyes"></i>
+                    <div class="ms-auto widget-icon bg-primary text-white">
+                        <i class="bx bx-wind"></i>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
     <div class="col">
         <div class="card rounded-4">
             <div class="card-body">
-                <div class="d-flex align-items-center">
+                <a href="{{ route('admin.blog.create') }}"    class="d-flex align-items-center">
                     <div class="">
-                        <p class="mb-1">New Clients</p>
-                        <h4 class="mb-0">9853</h4>
-                        <p class="mb-0 mt-2 font-13"><i class="bi bi-arrow-up"></i><span>32.7% from last week</span></p>
+                        <p class="mb-1">New Blog</p>
                     </div>
-                    <div class="ms-auto widget-icon bg-info text-white">
-                        <i class="bi bi-people-fill"></i>
+                    <div class="ms-auto widget-icon bg-primary text-white">
+                        <i class="bx bx-heart-circle"></i>
                     </div>
-                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card rounded-4">
+            <div class="card-body">
+                <a href="{{ route('admin.team.create') }}"    class="d-flex align-items-center">
+                    <div class="">
+                        <p class="mb-1">New Testiominal</p>
+                    </div>
+                    <div class="ms-auto widget-icon bg-primary text-white">
+                        <i class="bx bx-user-circle"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card rounded-4">
+            <div class="card-body">
+                <a href="{{ route('admin.slider.create') }}"    class="d-flex align-items-center">
+                    <div class="">
+                        <p class="mb-1">New Slider</p>
+                    </div>
+                    <div class="ms-auto widget-icon bg-primary text-white">
+                        <i class="bx bx-movie"></i>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
