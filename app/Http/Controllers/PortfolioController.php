@@ -19,7 +19,10 @@ class PortfolioController extends Controller
 
     public function index(Request $request)
     {
-        $posts = Post::query()->portfolio()->paginate(request()->get('per_page', 10));
+        $posts = Post::query()
+        ->where('post_type','portfolio')
+        ->orWhere('post_type','featured')
+        ->paginate(request()->get('per_page', 10));
 
         return view('backend.portfolio.index',compact('posts'));
     }

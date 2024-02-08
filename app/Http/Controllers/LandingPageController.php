@@ -12,14 +12,19 @@ class LandingPageController extends Controller
 {
     public function index()
     {
-        $sliders = Slider::query()->active()->take(6)->get();
+        $sliders = Slider::query()->active()->take(6)->with('category:id,title')->get();
         $blogs = Post::query()
                         ->active()
                         ->blog()
                         ->with('category:id,post_id,meta_value')
                         ->take(6)
                         ->get();
-
+        $gallerys = Post::query()
+                        ->active()
+                        ->gallery()
+                        ->with('category:id,post_id,meta_value')
+                        ->take(6)
+                        ->get();
         $projects = Post::query()
                         ->active()
                         ->project()
@@ -38,6 +43,12 @@ class LandingPageController extends Controller
                         ->with('category:id,post_id,meta_value')
                         ->latest()
                         ->get();
+        $featureds = Post::query()
+                        ->active()
+                        ->featured()
+                        ->with('category:id,post_id,meta_value')
+                        ->latest()
+                        ->get();
         $teams = Post::query()
                         ->active()
                         ->team()
@@ -52,7 +63,7 @@ class LandingPageController extends Controller
                         ->with('category:id,post_id,meta_value')
                         ->latest()
                         ->get();
-        return view(themeLocation(). '.index',compact('sliders','blogs','projects','services','portfolios','teams','testiominals'));
+        return view(themeLocation(). '.index',compact('sliders','blogs','projects','services','portfolios','featureds','teams','testiominals','gallerys'));
     }
     public function blogDetails($slug)
     {
@@ -65,6 +76,18 @@ class LandingPageController extends Controller
             $blog[$item->meta_key] = $item->meta_value;
         }
         return view(themeLocation().'.blog-details',compact('blog'));
+    }
+    public function galleryDetails($slug)
+    {
+        $gallery = Post::where('slug', $slug)->firstOrFail();
+        $blogmeta = $gallery->postmeta;
+        foreach($blogmeta as $item){
+            if($item->meta_key =='gallery')
+                $gallery[$item->meta_key] = json_decode($item->meta_value);
+            else
+                $gallery[$item->meta_key] = $item->meta_value;
+        }
+        return view(themeLocation().'.gallery-details',compact('gallery'));
     }
     public function serviceDetails($slug)
     {

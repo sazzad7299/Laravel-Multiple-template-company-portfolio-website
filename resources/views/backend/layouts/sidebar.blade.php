@@ -60,6 +60,19 @@
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-donate-heart"></i>
+                </div>
+                <div class="menu-title">Gallery</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('admin.gallery.create') }}"><i class="bi bi-circle"></i>Add Gallery</a>
+                </li>
+                <li> <a href="{{ route('admin.gallery.index') }}"><i class="bi bi-circle"></i>Gallery List</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-wind"></i>
                 </div>
                 <div class="menu-title">Portfolios</div>

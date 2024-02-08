@@ -16,7 +16,7 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-    
+
                         <div class="mb-3">
                             <label class="form-label">Description</label>
                             <textarea name="description" id="" cols="30" rows="3" class="form-control">{{ old('description') }}</textarea>
@@ -66,12 +66,21 @@
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <select name="category_id" id="category_id" class="form-control">
+                            @foreach(app('categories') as $category)
+                                <option value="{{ $category->id }}">{{ $category->title }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label">Status</label>
                         <select name="status" id="status" class="form-control">
                             <option value="1">Active</option>
                             <option value="2">Inactive</option>
                         </select>
                     </div>
+
                 </div>
                 <div class="card-footer">
                     <button class="btn btn-primary  float-end">Save</button>

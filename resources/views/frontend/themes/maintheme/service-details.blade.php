@@ -1,5 +1,5 @@
 @extends('frontend.themes.maintheme.layouts.app')
-@section('title','Title')
+@section('title',$service->title)
 @section('frontend')
     <!-- Header Banner -->
     <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4"
@@ -55,10 +55,11 @@
                         <div class="sidebar-widget help">
                             <div class="widget-inner">
                                 <div class="sidebar-title">
-                                    <h5>Need Savoye Help?</h5>
+                                    <h5>{{ app('settings')['lets_talk'] ?? 'Lets talsk' }}</h5>
                                 </div>
-                                <p>Give us a call or drop by anytime, we endeavour to answer all enquiries within 24 hours on business days. We will be happy to answer your questions. info@savoye.com</p>
-                                <div class="phone"><a href="tel:+{{ app('settings')['contanct_number'] ?? '01786740107'; }}"><i class="icon ti-tablet"></i>{{ app('settings')['contanct_number'] ?? '01786740107'; }}</a></div>
+                                <p>{{ app('settings')['lets_talk_description'] }}</p>
+                                <div class="phone"><a href="tel:+{{ app('settings')['lets_talk_phone'] }}"><i class="icon ti-tablet"></i>{{ app('settings')['lets_talk_phone'] ?? '01786740107' }}</a></div>
+                                <div class="phone"><a href="tel:+{{ app('settings')['lets_talk_phone'] }}"><i class="icon ti-email"></i>{{ app('settings')['lets_talk_email'] ?? 'exmple@gmail.com' }}</a></div>
                             </div>
                         </div>
                     </aside>

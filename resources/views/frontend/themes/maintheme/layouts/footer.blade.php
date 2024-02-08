@@ -30,7 +30,7 @@
                     </div>
                     <p>{{ app('settings')['lets_talk_description'] }}</p>
                     <p>{{ app('settings')['lets_talk_phone'] }}</p>
-                    <p>{{ app('settings')['lets_talk_email'] ?? 'hello' }}</p>
+                    <p>{{ app('settings')['lets_talk_email'] ?? 'hello@example.com' }}</p>
                 </div>
             </div>
         </div>

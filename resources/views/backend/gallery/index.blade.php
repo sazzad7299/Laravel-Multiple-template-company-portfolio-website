@@ -4,11 +4,11 @@
         <div class="card-header">
             <div class="row align-items-center">
                 <div class="col-lg-9 col-xl-10">
-                    <h4>Service List</h4>
+                    <h4>Gallery List</h4>
                 </div>
                 <div class="col-lg-3 col-xl-2">
-                    <a href="{{ route('admin.service.create') }}" class="btn btn-primary mb-3 mb-lg-0"><i
-                            class="bi bi-plus-square-fill"></i>Add service</a>
+                    <a href="{{ route('admin.gallery.create') }}" class="btn btn-primary mb-3 mb-lg-0"><i
+                            class="bi bi-plus-square-fill"></i>Add gallery</a>
                 </div>
             </div>
         </div>
@@ -37,14 +37,14 @@
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-center gap-3 fs-6">
-                                        <a href="{{ route('admin.service.edit', [$post->id]) }}"
+                                        <a href="{{ route('admin.gallery.edit', [$post->id]) }}"
                                             class="btn btn-sm btn-outline-primary" data-bs-toggle="tooltip"
                                             title="Edit"><i class="bi bi-pencil-fill"></i></a>
                                         <a href="javascript:;" class="btn btn-sm btn-outline-danger"
                                             data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"
                                             onclick="if(confirm('Are You Sure To Delete?')){ event.preventDefault(); getElementById('delete-form-{{ $post->id }}').submit(); } else { event.preventDefault(); }"><i
                                                 class="bi bi-trash-fill"></i></a>
-                                        <form action="{{ route('admin.service.destroy', [$post->id]) }}" method="post"
+                                        <form action="{{ route('admin.gallery.destroy', [$post->id]) }}" method="post"
                                             style="display: none;" id="delete-form-{{ $post->id }}">
                                             @csrf
                                             {{ method_field('DELETE') }}

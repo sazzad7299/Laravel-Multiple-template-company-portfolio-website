@@ -120,6 +120,17 @@
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
+
+                        <label class="form-label">Category</label>
+                        <select name="category_id" id="category_id" class="form-control">
+                            @foreach(app('categories') as $category)
+                            <option value="{{ $category->id }}" @if($slider->category_id ==
+                                $category->id) selected @endif>{{ $category->title }}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label">Status</label>
                         <select name="status" id="status" class="form-control">
                             <option value="1" {{ $slider->

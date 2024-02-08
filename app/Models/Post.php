@@ -36,6 +36,10 @@ class Post extends Model
     {
         $query->where('post_type', 'portfolio');
     }
+    public function scopeFeatured($query)
+    {
+        $query->where('post_type', 'featured');
+    }
     public function scopeTeam($query)
     {
         $query->where('post_type', 'team');
@@ -43,6 +47,10 @@ class Post extends Model
     public function scopeTestiominal($query)
     {
         $query->where('post_type', 'review');
+    }
+    public function scopeGallery($query)
+    {
+        $query->where('post_type', 'gallery');
     }
     public function scopeSearch($query, $request)
     {
