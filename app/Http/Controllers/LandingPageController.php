@@ -63,7 +63,7 @@ class LandingPageController extends Controller
                         ->with('category:id,post_id,meta_value')
                         ->latest()
                         ->get();
-        return view(themeLocation(). '.index',compact('sliders','blogs','projects','services','portfolios','featureds','teams','testiominals','gallerys'));
+        return view($this->activeTemplate. '.index',compact('sliders','blogs','projects','services','portfolios','featureds','teams','testiominals','gallerys'));
     }
     public function blogDetails($slug)
     {
@@ -75,7 +75,7 @@ class LandingPageController extends Controller
             else
             $blog[$item->meta_key] = $item->meta_value;
         }
-        return view(themeLocation().'.blog-details',compact('blog'));
+        return view($this->activeTemplate.'.blog-details',compact('blog'));
     }
     public function galleryDetails($slug)
     {
@@ -87,7 +87,7 @@ class LandingPageController extends Controller
             else
                 $gallery[$item->meta_key] = $item->meta_value;
         }
-        return view(themeLocation().'.gallery-details',compact('gallery'));
+        return view($this->activeTemplate.'.gallery-details',compact('gallery'));
     }
     public function serviceDetails($slug)
     {
@@ -99,7 +99,7 @@ class LandingPageController extends Controller
             else
             $service[$item->meta_key] = $item->meta_value;
         }
-        return view(themeLocation().'.service-details',compact('service'));
+        return view($this->activeTemplate.'.service-details',compact('service'));
     }
     public function projectDetails($slug)
     {
@@ -111,6 +111,6 @@ class LandingPageController extends Controller
             else
             $project[$item->meta_key] = $item->meta_value;
         }
-        return view(themeLocation().'.project-details',compact('project'));
+        return view($this->activeTemplate.'.project-details',compact('project'));
     }
 }

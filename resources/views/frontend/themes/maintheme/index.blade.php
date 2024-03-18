@@ -52,9 +52,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <div class="section-title">{{ app('settings')['about_title'] ?? 'About Us'; }}</div>
+                    <div class="section-title">{{ app('settings')['about_title'] ?? 'About Us' }}</div>
                     <p>
-                        {{ app('settings')['about_description'] ?? 'About Us'; }}
+                        {{ app('settings')['about_description'] ?? 'About Us' }}
                     </p>
                 </div>
                 <div class="col-md-5">

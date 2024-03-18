@@ -5,9 +5,20 @@
                 <div class="item abot">
                     <div class="logo mb-15"> <img src="{{ asset(app('settings')['site_light_logo'] ?? 'frontend/img/logo-light.png')}}" alt=""> </div>
                     <p>{{ app('settings')['site_meta_title'] }}</p>
-                    <div class="social-icon"> <a href="index.html"><i class="ti-facebook"></i></a> <a
-                            href="index.html"><i class="ti-twitter"></i></a> <a href="index.html"><i
-                                class="ti-instagram"></i></a> <a href="index.html"><i class="ti-pinterest"></i></a>
+                    <div class="social-icon">
+                        @if(isset(app('settings')['facebook_url']))
+                        <a href="{{ app('settings')['facebook_url'] }}" target="_blank"><i class="ti-facebook"></i></a>
+                    @endif
+                    @if(isset(app('settings')['twitter_url']))
+                        <a href="{{ app('settings')['twitter_url']  }}" target="_blank"><i class="ti-twitter"></i></a>
+                    @endif
+                    @if(isset(app('settings')['linkedin_url']))
+                        <a href="{{ app('settings')['linkedin_url']  }}" target="_blank"><i class="ti-linkedin"></i></a>
+                    @endif
+                    @if(isset(app('settings')['instagram_url']))
+                        <a href="{{ app('settings')['instagram_url']  }}" target="_blank"><i class="ti-instagram"></i></a>
+                    @endif
+
                     </div>
                 </div>
             </div>
@@ -35,7 +46,7 @@
             </div>
         </div>
     </div>
-    <!-- <div class="sub-footer">
+    <div class="sub-footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
@@ -51,5 +62,5 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 </footer>

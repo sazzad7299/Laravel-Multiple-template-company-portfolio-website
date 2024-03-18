@@ -112,7 +112,28 @@
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Total Rooms <span class="text-danger">*</span> :</label>
+                            <input type="text" class="form-control" name="total_room" value="{{ old('total_room',app('settings')['total_room']) }}">
+                            @error('total_room')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Total Stafs <span class="text-danger">*</span> :</label>
+                            <input type="text" class="form-control" name="total_staff" value="{{ old('total_staff',app('settings')['total_staff']) }}">
+                            @error('total_staff')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Total Client <span class="text-danger">*</span> :</label>
+                            <input type="text" class="form-control" name="total_client" value="{{ old('total_client',app('settings')['total_client']) }}">
+                            @error('total_client')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="form-label">Cover Image(600x400)</label>
@@ -122,7 +143,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3 d-flex justify-content-center">
-                                <img src="{{ asset( app('settings')['site_default_logo']  )}}" alt="" style="border:2px solid #ccc">
+                                <img src="{{ asset( app('settings')['about_image']  )}}" alt="" style="border:2px solid #ccc;width:200px">
                             </div>
                         </div>
                         <div class="col-12 mb-3">
@@ -177,7 +198,7 @@
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        
+
                         <div class="mx-auto">
                             <button class="btn btn-primary">Save</button>
                         </div>
@@ -199,6 +220,35 @@
                             <label class="form-label">Quick chat Number <span class="text-danger">*</span> :</label>
                             <input type="text" class="form-control" name="lets_talk_phone" value="{{ old('lets_talk_phone',app('settings')['lets_talk_phone']) }}">
                             @error('lets_talk_phone')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Facebook :</label>
+                            <input type="url" class="form-control" name="facebook_url" value="{{ old('facebook_url', isset(app('settings')['facebook_url']) ? app('settings')['facebook_url'] : '') }}">
+
+                            @error('facebook_url')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Twitter:</label>
+                            <input type="url" class="form-control" name="twitter_url" value="{{ old('twitter_url',isset(app('settings')['facebook_url']) ? app('settings')['facebook_url'] : '') }}">
+                            @error('tw_url')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Linkend:</label>
+                            <input type="url" class="form-control" name="linkedin_url" value="{{ old('linkedin_url', isset(app('settings')['linkedin_url']) ? app('settings')['linkedin_url'] : '') }}">
+                            @error('linkedin_url')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Instagram:</label>
+                            <input type="url" class="form-control" name="instagram_url" value="{{ old('instagram_url', isset(app('settings')['instagram_url']) ? app('settings')['instagram_url'] : '') }}">
+                            @error('instagram_url')
                             <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
