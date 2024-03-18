@@ -21,7 +21,7 @@ class SettingsServiceProvider extends ServiceProvider
         });
         $this->app->singleton('categories', function () {
             return Cache::remember('categories', 60, function () {
-                return Category::query()->active()->select('id', 'title','feature_image')->get();
+                return Category::query()->active()->get(['id', 'title','feature_image','description']);
             });
         });
     }
