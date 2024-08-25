@@ -87,6 +87,6 @@ class RoomController extends Controller
     public function destroy(Post $room)
     {
         $this->postService->delete($room);
-        return redirect()->route('admin.room.index')->with('success','Blog Deleted Successfully');
+        return redirect()->route('admin.room.index')->with('success','Room Deleted Successfully');
     }
 }

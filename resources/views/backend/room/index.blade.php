@@ -7,7 +7,7 @@
                     <h4>Rooms List</h4>
                 </div>
                 <div class="col-lg-3 col-xl-2">
-                    <a href="{{ route('admin.blog.create') }}" class="btn btn-primary mb-3 mb-lg-0"><i
+                    <a href="{{ route('admin.room.create') }}" class="btn btn-primary mb-3 mb-lg-0"><i
                             class="bi bi-plus-square-fill"></i>Add Rooms</a>
                 </div>
             </div>

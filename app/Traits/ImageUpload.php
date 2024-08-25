@@ -5,7 +5,7 @@ namespace App\Traits;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManager;
-use Intervention\Image\Drivers\Imagick\Driver;
+use Intervention\Image\Drivers\GD\Driver;
 
 trait ImageUpload
 {
