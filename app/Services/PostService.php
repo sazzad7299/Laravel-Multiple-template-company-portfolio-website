@@ -14,7 +14,7 @@ class PostService
 
     public function index($request)
     {
-        $category = Post::query()
+        $category = Post::query()->blog()
             ->when(request()->get('active'), function ($query) {
                 return $query->active();
             })

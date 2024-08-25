@@ -34,6 +34,19 @@
         </li>
         <li>
             <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-heart-circle"></i>
+                </div>
+                <div class="menu-title">My Rooms</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('admin.room.create') }}"><i class="bi bi-circle"></i>Add Room</a>
+                </li>
+                <li> <a href="{{ route('admin.room.index') }}"><i class="bi bi-circle"></i>Room List</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-medal"></i>
                 </div>
                 <div class="menu-title">Project</div>

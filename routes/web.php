@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\GalleryController;
@@ -37,6 +38,7 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.',  'middleware' => ['auth']]
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::resource('slider', SliderController::class);
     Route::resource('category', CategoryController::class);
+    Route::resource('room', RoomController::class);
     Route::resource('blog', PostController::class);
     Route::resource('project', ProjectController::class);
     Route::resource('service', ServiceController::class);

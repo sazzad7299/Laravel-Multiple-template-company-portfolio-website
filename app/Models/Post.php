@@ -52,6 +52,10 @@ class Post extends Model
     {
         $query->where('post_type', 'gallery');
     }
+    public function scopeRoom($query)
+    {
+        $query->where('post_type', 'room');
+    }
     public function scopeSearch($query, $request)
     {
             return $query->where('title', 'LIKE', '%'.$request.'%')
